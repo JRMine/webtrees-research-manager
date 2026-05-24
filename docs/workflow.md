@@ -21,16 +21,55 @@ Genau diesen Weg soll das Modul als eigenständige Arbeitsebene in webtrees sich
 
 ## Überblick
 
-Der geplante Workflow besteht aus fünf fachlichen Phasen:
+Der geplante Workflow besteht aus sechs fachlichen Phasen:
 
-1. Claim erfassen  
-2. Claim im Personenkontext sichtbar machen  
-3. Claims im Forschungsbericht-Builder vergleichen  
-4. Bericht und Schlussfolgerung erstellen  
-5. Event erzeugen und berücksichtigte Claims aus der Standardansicht ausblenden
+1. Forschungsfall anlegen oder bestehenden Forschungsfall öffnen  
+2. Claim aus Quelle, Transkription oder Personenkontext erfassen  
+3. Claim im Personenkontext und gegebenenfalls im Forschungsfall sichtbar machen  
+4. Claims im Forschungsbericht-Builder vergleichen und bewerten  
+5. Bericht und Schlussfolgerung erstellen  
+6. Event erzeugen und berücksichtigte Claims aus der Standardansicht ausblenden
 
 Diese Phasen sind kein starrer Einbahnprozess.  
 Der Workflow bleibt revisierbar und kann bei neuer Evidenz erneut durchlaufen werden.
+
+Forschungsaufgaben können den Workflow als operative Arbeitsschritte begleiten.  
+Sie sind jedoch nicht die eigentliche analytische Klammer des Prozesses. Diese Rolle übernimmt der Forschungsfall.
+
+---
+
+
+## Arbeit mit Forschungsfällen
+
+Neben der Arbeit mit einzelnen Claims soll das Modul die Arbeit mit Forschungsfällen unterstützen.
+
+Ein Forschungsfall wird angelegt, wenn eine genealogische Fragestellung mehrere Claims, mehrere Personen, mehrere Quellen oder mehrere Arbeitsschritte zusammenhält.  
+Er bildet den organisatorischen Rahmen für komplexere Analysen.
+
+Innerhalb eines Forschungsfalls können verlinkt werden:
+
+- beteiligte Personen
+- relevante Quellen
+- vorhandene Transkriptionen
+- zugehörige Claims
+- Forschungsaufgaben
+- bestehende Berichte
+- bereits erzeugte Events
+
+Zusätzlich soll der Forschungsfall eigene Notizen erlauben, um die Fragestellung und den allgemeinen Denkprozess zu dokumentieren.
+
+Der Forschungsfall ist damit der Einstiegspunkt für größere Untersuchungen, während Claims weiterhin die eigentlichen Evidenzeinheiten bleiben.
+
+---
+
+## Forschungsaufgaben im Workflow
+
+Forschungsaufgaben dienen im Workflow als konkrete Arbeitsschritte.
+
+Sie können zum Beispiel festhalten, dass eine Quelle erneut geprüft, eine Transkription kontrolliert oder eine weitere Vergleichsquelle gesucht werden soll.  
+Forschungsaufgaben sollen in einen Forschungsfall eingebunden werden können, ohne dass dafür zwingend Unteraufgaben erforderlich sind.
+
+Dadurch verbindet das Modul evidenzbasierte Analyse mit praktischer Forschungsorganisation.
 
 ---
 
