@@ -1,4 +1,4 @@
-# Konzeptentwurf: Claim-/Evidence-Modul für webtrees
+# Konzeptentwurf: Research Manager für webtrees
 
 ## Ziel des Moduls
 
@@ -205,6 +205,128 @@ Das Modul soll daher nicht auf eine einzelne Quellengattung beschränkt sein.
 
 ---
 
+## Forschungsfall als übergeordneter Container
+
+Das Modul soll nicht nur einzelne Claims verwalten, sondern auch komplexere genealogische Fragestellungen strukturiert zusammenhalten können.
+
+Dafür wird ein eigenständiger **Forschungsfall** als übergeordneter Container vorgesehen.  
+Ein Forschungsfall beschreibt eine genealogische Fragestellung oder ein zusammenhängendes Untersuchungsfeld.
+
+Beispiele:
+
+- Wer sind die Eltern einer bestimmten Person?
+- Sind zwei gleichnamige Personen identisch?
+- Welche von mehreren Geburtsangaben ist plausibel?
+- Gehören mehrere Quellen zum selben Lebenslauf?
+- Wie lässt sich eine personenübergreifende Analyse zu einer Familie oder einem sozialen Umfeld organisieren?
+
+Der Forschungsfall dient dabei nicht als Speicherort für alle Inhalte selbst, sondern als ordnende Klammer.  
+An ihn werden die relevanten Elemente verlinkt.
+
+Ein Forschungsfall kann insbesondere verknüpfen mit:
+
+- Personen
+- Quellen
+- Transkriptionen
+- Claims
+- Forschungsberichten
+- genealogischen Events
+- Forschungsaufgaben
+
+Dadurch eignet sich der Forschungsfall besonders für personenübergreifende oder quellenübergreifende Analysen, ohne dass dafür eine starre neue Hierarchie aufgebaut werden muss.
+
+---
+
+## Notizen am Forschungsfall
+
+Ein Forschungsfall soll eigene Notizen unterstützen.
+
+Diese Notizen dienen nicht als Ersatz für Claims oder Berichte, sondern als freier Arbeitsraum auf Fall-Ebene.  
+Dort können zum Beispiel festgehalten werden:
+
+- die eigentliche Forschungsfrage
+- Zwischenüberlegungen
+- Hypothesen
+- offene Probleme
+- methodische Hinweise
+- nächste sinnvolle Schritte
+- allgemeine Einordnungen, die nicht in einen einzelnen Claim passen
+
+Damit erhält der Forschungsfall neben seiner Verlinkungsfunktion auch eine eigene fachliche Arbeitsoberfläche.
+
+---
+
+## Verhältnis von Forschungsfall und Claim
+
+Der Forschungsfall ist nicht die eigentliche Evidenzeinheit.  
+Diese Rolle bleibt beim Claim.
+
+Der Forschungsfall dient vielmehr dazu, mehrere Claims in einem größeren analytischen Zusammenhang zu organisieren.  
+Das ist insbesondere dann wichtig, wenn eine genealogische Fragestellung nicht nur eine Person oder nicht nur einen einzelnen Eventtyp betrifft.
+
+Claims bleiben daher eigenständige Forschungsbausteine.  
+Sie können unabhängig existieren, aber zusätzlich einem Forschungsfall zugeordnet werden.
+
+---
+
+## Verhältnis von Forschungsfall und Forschungsaufgabe
+
+In webtrees existieren bereits Forschungsaufgaben als To-do-Struktur.  
+Diese sind für operative Arbeitsschritte nützlich, sollen im geplanten Modul aber nicht den Forschungsfall ersetzen.
+
+Das Konzept unterscheidet daher bewusst zwischen:
+
+- **Forschungsfall** als inhaltlicher und analytischer Container
+- **Forschungsaufgabe** als konkreter Arbeits- oder Prüfschritt
+
+Ein Forschungsfall kann eine oder mehrere Forschungsaufgaben referenzieren.  
+Dadurch lassen sich praktische Tätigkeiten in einen größeren Forschungszusammenhang einordnen, ohne dass ein eigenes System von Unteraufgaben aufgebaut werden muss.
+
+Beispiele für Forschungsaufgaben innerhalb eines Forschungsfalls:
+
+- Quelle erneut prüfen
+- Transkription vervollständigen
+- Lesung durch zweite Person kontrollieren
+- widersprüchliche Angaben vergleichen
+- weitere Quelle beschaffen
+- externe Lesehilfe einholen
+
+Diese Aufgaben bleiben operative Einheiten.  
+Der Forschungsfall bleibt die fachliche Klammer.
+
+---
+
+## Flexibilität bei Forschungsaufgaben
+
+Ein aktuelles Hindernis in webtrees besteht darin, dass Forschungsaufgaben bisher an Personen oder Familien gebunden sind.  
+Für ein evidenzbasiertes Forschungsmodul ist dies zu eng, da viele Arbeitsaufträge sich auf Quellen, Transkriptionen oder ganze Forschungsfälle beziehen können.
+
+Das Modul soll deshalb eine flexiblere Sicht auf Forschungsaufgaben unterstützen.
+
+Zunächst kann dies durch Verlinkung vorhandener Forschungsaufgaben in einen Forschungsfall geschehen.  
+Langfristig ist zu prüfen, ob Aufgaben auch unabhängig von Personen direkt mit Quellen oder Forschungsfällen verknüpft werden können.
+
+Damit würde die Arbeitsorganisation besser an reale genealogische Forschung angepasst.
+
+---
+
+## Rolle des Research Managers
+
+Der geplante Modulname **Research Manager** betont diese übergreifende Funktion.
+
+Das Modul verwaltet nicht nur einzelne Claims, sondern den gesamten Zusammenhang aus:
+
+- Fragestellung
+- Quelle
+- Claim
+- Forschungsaufgabe
+- Bericht
+- genealogischer Schlussfolgerung
+
+Der Research Manager ist damit die organisatorische und fachliche Ebene für evidenzbasiertes Arbeiten in webtrees.
+
+---
+
 ## Leitprinzipien des Konzepts
 
 Das Modul folgt den folgenden Grundgedanken:
@@ -230,7 +352,7 @@ Das Modul soll deshalb:
 
 ## Vorläufiges Fazit
 
-Das geplante Claim-/Evidence-Modul soll webtrees um eine evidenzbasierte Forschungsebene erweitern.
+Das geplante Reserach Manager soll webtrees um eine evidenzbasierte Forschungsebene erweitern.
 
 Im Zentrum steht nicht das sofortige Eintragen fertiger Fakten, sondern der nachvollziehbare Weg von der Quelle über einzelne Claims hin zu einer begründeten genealogischen Schlussfolgerung.
 
