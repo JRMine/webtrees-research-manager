@@ -158,6 +158,48 @@ Sie ist enger und fokussierter als der gesamte Bericht.
 Während der Bericht den Argumentationsraum dokumentiert, benennt die Schlussfolgerung die daraus gezogene genealogische Aussage.
 
 Eine Schlussfolgerung kann später in ein Event überführt werden.
+---
+
+## Forschungsfall
+
+Ein Forschungsfall ist ein übergeordneter Container für eine genealogische Fragestellung.
+
+Er dient dazu, Personen, Quellen, Transkriptionen, Claims, Berichte, Events und Forschungsaufgaben in einem gemeinsamen analytischen Zusammenhang zu organisieren.
+
+Der Forschungsfall ist nicht selbst der Claim und nicht selbst der Bericht.  
+Er ist die ordnende Klammer eines Forschungsvorgangs.
+
+Ein Forschungsfall eignet sich besonders für personenübergreifende, quellenübergreifende oder mehrdeutige genealogische Fragestellungen.
+
+---
+
+## Forschungsfall-Notiz
+
+Eine Forschungsfall-Notiz ist eine freie Notiz auf Ebene des Forschungsfalls.
+
+Sie dient zur Dokumentation von Fragestellungen, Hypothesen, Zwischenständen, methodischen Hinweisen oder offenen Punkten, die nicht auf Claim-Ebene liegen.
+
+Sie ersetzt weder Claims noch Berichte, sondern ergänzt diese um einen allgemeinen Arbeitsraum.
+
+---
+
+## Forschungsaufgabe
+
+Eine Forschungsaufgabe ist ein konkreter Arbeitsschritt oder ein To-do innerhalb des Forschungsprozesses.
+
+Im Unterschied zum Forschungsfall ist die Forschungsaufgabe nicht die analytische Klammer einer Fragestellung, sondern eine operative Tätigkeit, zum Beispiel das Prüfen einer Quelle oder das Einholen einer zweiten Lesung.
+
+Forschungsaufgaben können einem Forschungsfall zugeordnet werden, ohne dass dafür ein eigenes System von Unteraufgaben erforderlich ist.
+
+---
+
+## Research Manager
+
+Research Manager ist der vorläufige Name des geplanten Moduls.
+
+Der Name bezeichnet die übergreifende Funktion des Moduls als Arbeitsumgebung für evidenzbasierte genealogische Forschung.  
+Der Research Manager verbindet Forschungsfälle, Claims, Berichte, Forschungsaufgaben und genealogische Schlussfolgerungen in einem gemeinsamen System.
+
 
 ---
 
