@@ -8,9 +8,9 @@ Research Manager erweitert webtrees um eine Forschungsebene zwischen **Quelle** 
 
 Im Zentrum steht nicht das sofortige Eintragen eines Ergebnisses, sondern der nachvollziehbare Weg dorthin:
 
-- Aussagen aus Quellen als Claims erfassen
-- Claims Personen und optional Forschungsfällen zuordnen
-- Claims vergleichen und bewerten
+- Aussagen aus Quellen als Thesen erfassen
+- Thesen Personen und optional Forschungsfällen zuordnen
+- Thesen vergleichen und bewerten
 - daraus einen Forschungsbericht und eine Schlussfolgerung ableiten
 - anschließend ein eigentliches Event in webtrees erzeugen
 
@@ -24,11 +24,11 @@ Research Manager soll eine Arbeitsumgebung für genealogische Analyse schaffen.
 
 Das Modul ist gedacht für:
 
-- die strukturierte Erfassung von Claims aus Quellen
+- die strukturierte Erfassung von Thesen aus Quellen
 - die Bewertung konkurrierender oder unsicherer Aussagen
 - die Dokumentation genealogischer Begründungen
 - die Organisation komplexerer Forschungsfragen in Forschungsfällen
-- die Verbindung von Quelle, Claim, Bericht und Event
+- die Verbindung von Quelle, These, Bericht und Event
 
 Das Modul ist bewusst unabhängig von einem Transkriptionsmodul gedacht, soll aber später gut mit Transkriptionen zusammenarbeiten können.
 
@@ -36,17 +36,17 @@ Das Modul ist bewusst unabhängig von einem Transkriptionsmodul gedacht, soll ab
 
 ## Kernkonzepte
 
-### Claim
-Ein Claim ist ein einzelner, strukturierter Forschungsbaustein.  
+### These
+Ein These ist ein einzelner, strukturierter Forschungsbaustein.  
 Er entsteht aus einer Quelle, einer Transkription oder einer anderen nachvollziehbaren Beobachtung und bezieht sich auf mindestens eine Person.
 
-Ein Claim ist **nicht** identisch mit einem fertigen Event.  
+Ein These ist **nicht** identisch mit einem fertigen Event.  
 Er ist eine quellengebundene Aussage im Forschungsprozess.
 
 ### Zieltyp
-Ein Claim kann optional einem Zieltyp zugeordnet werden, zum Beispiel `BIRT`, `DEAT`, `MARR` oder `RESI`.
+Ein These kann optional einem Zieltyp zugeordnet werden, zum Beispiel `BIRT`, `DEAT`, `MARR` oder `RESI`.
 
-Der Zieltyp beschreibt, zu welcher Art genealogischer Aussage ein Claim voraussichtlich gehört, ohne ihn bereits in ein fertiges Event zu verwandeln.
+Der Zieltyp beschreibt, zu welcher Art genealogischer Aussage ein These voraussichtlich gehört, ohne ihn bereits in ein fertiges Event zu verwandeln.
 
 ### Forschungsfall
 Ein Forschungsfall ist ein übergeordneter Container für eine genealogische Fragestellung.
@@ -56,7 +56,7 @@ Er dient dazu, zusammengehörige Elemente in einem analytischen Zusammenhang zu 
 - Personen
 - Quellen
 - Transkriptionen
-- Claims
+- Thesen
 - Berichte
 - Events
 - Forschungsaufgaben
@@ -66,12 +66,12 @@ Der Forschungsfall speichert diese Inhalte nicht zwingend selbst, sondern hält 
 ### Forschungsbericht
 Ein Forschungsbericht dokumentiert den aktuellen Forschungsstand.
 
-Er fasst mehrere Claims zusammen, macht ihre Bewertung sichtbar und hält die genealogische Schlussfolgerung fest, die daraus abgeleitet wurde.
+Er fasst mehrere Thesen zusammen, macht ihre Bewertung sichtbar und hält die genealogische Schlussfolgerung fest, die daraus abgeleitet wurde.
 
 ### Event
 Ein Event ist das eigentliche genealogische Ergebnis im Stammbaum.
 
-Im Unterschied zum Claim ist ein Event bereits die aktuell gewählte genealogische Entscheidung.
+Im Unterschied zum These ist ein Event bereits die aktuell gewählte genealogische Entscheidung.
 
 ---
 
@@ -80,14 +80,14 @@ Im Unterschied zum Claim ist ein Event bereits die aktuell gewählte genealogisc
 Der aktuelle konzeptionelle Workflow besteht aus sechs fachlichen Phasen:
 
 1. Forschungsfall anlegen oder bestehenden Forschungsfall öffnen  
-2. Claim aus Quelle, Transkription oder Personenkontext erfassen  
-3. Claim im Personenkontext und gegebenenfalls im Forschungsfall sichtbar machen  
-4. Claims im Forschungsbericht-Builder vergleichen und bewerten  
+2. These aus Quelle, Transkription oder Personenkontext erfassen  
+3. These im Personenkontext und gegebenenfalls im Forschungsfall sichtbar machen  
+4. Thesen im Forschungsbericht-Builder vergleichen und bewerten  
 5. Bericht und Schlussfolgerung erstellen  
-6. Event erzeugen und berücksichtigte Claims aus der Standardansicht ausblenden
+6. Event erzeugen und berücksichtigte Thesen aus der Standardansicht ausblenden
 
 Dieser Ablauf ist bewusst **revisierbar**.  
-Wenn neue Evidenz hinzukommt, können Claims erneut berücksichtigt, Berichte überarbeitet und Schlussfolgerungen angepasst werden.
+Wenn neue Evidenz hinzukommt, können Thesen erneut berücksichtigt, Berichte überarbeitet und Schlussfolgerungen angepasst werden.
 
 ---
 
@@ -146,7 +146,7 @@ Research Manager versteht sich als eigenständige Forschungsebene zwischen Quell
 
 Langfristig soll Research Manager helfen, webtrees um eine nachvollziehbare evidenzbasierte Arbeitsweise zu erweitern:
 
-**Quelle → Claim → Vergleich/Bewertung → Bericht → Schlussfolgerung → Event**
+**Quelle → These → Vergleich/Bewertung → Bericht → Schlussfolgerung → Event**
 
 ---
 
