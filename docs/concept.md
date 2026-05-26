@@ -3,9 +3,9 @@
 ## Ziel des Moduls
 
 Dieses Projekt beschreibt ein eigenständiges webtrees-Modul für evidenzbasiertes genealogisches Arbeiten.  
-Das Modul soll es ermöglichen, Aussagen aus Quellen strukturiert als Claims zu erfassen, zu vergleichen, zu bewerten und in begründete genealogische Schlussfolgerungen zu überführen.
+Das Modul soll es ermöglichen, Aussagen aus Quellen strukturiert als Thesen zu erfassen, zu vergleichen, zu bewerten und in begründete genealogische Schlussfolgerungen zu überführen.
 
-Das Modul ist bewusst unabhängig von einem Transkriptionsmodul gedacht. Transkriptionen können eine wichtige Eingangsquelle für Claims sein, sind aber nicht Voraussetzung. Claims können grundsätzlich aus jeder Quelle entstehen, auch ohne vorhandene Transkription.
+Das Modul ist bewusst unabhängig von einem Transkriptionsmodul gedacht. Transkriptionen können eine wichtige Eingangsquelle für Thesen sein, sind aber nicht Voraussetzung. Thesen können grundsätzlich aus jeder Quelle entstehen, auch ohne vorhandene Transkription.
 
 Ziel ist es, webtrees um eine Arbeitsebene zu erweitern, die zwischen Quelle und fertigem GEDCOM-Ereignis liegt. Dadurch soll der Forschungsprozess selbst sichtbarer, nachvollziehbarer und besser dokumentierbar werden.
 
@@ -31,11 +31,11 @@ Damit versteht sich das Modul nicht als bloße Notizsammlung, sondern als Arbeit
 
 ## Grundidee
 
-Ein Claim ist ein einzelner Forschungsbaustein.
+Ein These ist ein einzelner Forschungsbaustein.
 
-Ein Claim entsteht aus einer Quelle oder Transkription, bezieht sich auf mindestens eine Person und kann optional einem Zieltyp zugeordnet werden, zum Beispiel einem späteren GEDCOM-Ereignis wie `BIRT`, `DEAT`, `MARR` oder `RESI`.
+Ein These entsteht aus einer Quelle oder Transkription, bezieht sich auf mindestens eine Person und kann optional einem Zieltyp zugeordnet werden, zum Beispiel einem späteren GEDCOM-Ereignis wie `BIRT`, `DEAT`, `MARR` oder `RESI`.
 
-Ein Claim ist jedoch nicht mit dem eigentlichen Event identisch.  
+Ein These ist jedoch nicht mit dem eigentlichen Event identisch.  
 Er ist eine Vorstufe genealogischer Interpretation: quellengebunden, personenbezogen, eventnah strukturiert, aber noch nicht die abschließende redaktionelle Entscheidung.
 
 Dadurch bleibt Raum für:
@@ -44,57 +44,57 @@ Dadurch bleibt Raum für:
 - konkurrierende Werte
 - unsichere Lesarten
 - Kommentare und Bewertungen
-- späteren Vergleich mehrerer Claims
+- späteren Vergleich mehrerer Thesen
 
 ---
 
 ## Abgrenzung zum eigentlichen GEDCOM-Event
 
-Das Modul soll Claims nicht einfach als zweite Kopie normaler Ereignisse behandeln.
+Das Modul soll Thesen nicht einfach als zweite Kopie normaler Ereignisse behandeln.
 
 Stattdessen gilt:
 
-Ein Claim kann in seinem Aufbau an ein Event angelehnt sein, damit der spätere Übergang einfach bleibt.  
+Ein These kann in seinem Aufbau an ein Event angelehnt sein, damit der spätere Übergang einfach bleibt.  
 Zusätzlich besitzt er aber eine eigene Bedeutungsebene als Forschungsobjekt.
 
 Wesentlich ist daher die Unterscheidung:
 
 - Ein **Event** ist eine bereits getroffene genealogische Entscheidung.
-- Ein **Claim** ist eine quellenbasierte Aussage, die zu einer solchen Entscheidung beitragen kann.
+- Ein **These** ist eine quellenbasierte Aussage, die zu einer solchen Entscheidung beitragen kann.
 
-Um diese Nähe und zugleich diese Trennung sichtbar zu machen, soll ein Claim ein eventnahes Datenformat besitzen und zusätzlich einen optionalen Zieltyp enthalten.  
-Dieser Zieltyp beschreibt, zu welcher Art von Event ein Claim wahrscheinlich gehört, ohne ihn bereits in dieses Event zu verwandeln.
+Um diese Nähe und zugleich diese Trennung sichtbar zu machen, soll ein These ein eventnahes Datenformat besitzen und zusätzlich einen optionalen Zieltyp enthalten.  
+Dieser Zieltyp beschreibt, zu welcher Art von Event ein These wahrscheinlich gehört, ohne ihn bereits in dieses Event zu verwandeln.
 
 Beispiele:
 
-- ein Claim mit Zieltyp `BIRT`
-- ein Claim mit Zieltyp `DEAT`
-- ein Claim ohne festgelegten Zieltyp
-- mehrere Claims mit demselben Zieltyp, aber unterschiedlichen Werten
+- ein These mit Zieltyp `BIRT`
+- ein These mit Zieltyp `DEAT`
+- ein These ohne festgelegten Zieltyp
+- mehrere Thesen mit demselben Zieltyp, aber unterschiedlichen Werten
 
 ---
 
 ## Zentrale Anforderungen
 
-Das Modul soll Claims aus verschiedenen Perspektiven zugänglich machen.
+Das Modul soll Thesen aus verschiedenen Perspektiven zugänglich machen.
 
 ### 1. Einstieg über die Quelle
-Ein Claim soll in der Quellenansicht oder aus einer Transkription heraus erzeugt werden können.  
-Dadurch bleibt die Herkunft des Claims nachvollziehbar.
+Ein These soll in der Quellenansicht oder aus einer Transkription heraus erzeugt werden können.  
+Dadurch bleibt die Herkunft des Thesen nachvollziehbar.
 
 ### 2. Einstieg über die Person
-Ein Claim soll ebenso in der Personenansicht sichtbar und anlegbar sein.  
-Gerade dort müssen mehrere Claims gemeinsam bewertet werden können, weil genealogische Schlussfolgerungen in der Regel im Personenkontext getroffen werden.
+Ein These soll ebenso in der Personenansicht sichtbar und anlegbar sein.  
+Gerade dort müssen mehrere Thesen gemeinsam bewertet werden können, weil genealogische Schlussfolgerungen in der Regel im Personenkontext getroffen werden.
 
 ### 3. Sichtbarkeit am passenden Ereigniskontext
-Claims sollen in der Individuenansicht möglichst dort sichtbar sein, wo später das zugehörige Event steht oder stehen würde.  
+Thesen sollen in der Individuenansicht möglichst dort sichtbar sein, wo später das zugehörige Event steht oder stehen würde.  
 Dadurch wird der Zusammenhang zwischen Forschungsstand und fertigem Stammbaum-Eintrag unmittelbar erkennbar.
 
 ---
 
-## Der Claim als Kernobjekt
+## Der These als Kernobjekt
 
-Der Claim ist das zentrale Objekt des Moduls.
+Der These ist das zentrale Objekt des Moduls.
 
 Konzeptionell besitzt er folgende Eigenschaften:
 
@@ -105,7 +105,7 @@ Konzeptionell besitzt er folgende Eigenschaften:
 - Er kann Kommentare, Bewertungshinweise und Bearbeitungsinformationen enthalten.
 - Er bleibt auch dann erhalten, wenn aus ihm später ein Event erzeugt wird.
 
-Der Claim ist damit weder reine Quelle noch fertiges Event, sondern die verbindende Forschungseinheit zwischen beiden.
+Der These ist damit weder reine Quelle noch fertiges Event, sondern die verbindende Forschungseinheit zwischen beiden.
 
 ---
 
@@ -113,32 +113,32 @@ Der Claim ist damit weder reine Quelle noch fertiges Event, sondern die verbinde
 
 Das Herzstück des Moduls ist eine Arbeitsansicht, die vorläufig als **Forschungsbericht-Builder** bezeichnet wird.
 
-In dieser Ansicht sollen zu einer Person und optional zu einem bestimmten Zieltyp alle relevanten Claims zusammengeführt werden.  
+In dieser Ansicht sollen zu einer Person und optional zu einem bestimmten Zieltyp alle relevanten Thesen zusammengeführt werden.  
 Dort können sie verglichen, geprüft und für eine Schlussfolgerung ausgewählt werden.
 
 Der Forschungsbericht-Builder soll insbesondere ermöglichen:
 
-- alle Claims zu einer Person anzuzeigen
-- Claims nach Zieltyp zu gruppieren
+- alle Thesen zu einer Person anzuzeigen
+- Thesen nach Zieltyp zu gruppieren
 - konkurrierende Werte nebeneinander zu sehen
 - Kommentare und Bewertungen einzubeziehen
 - eine begründete Auswahl zu treffen
-- aus den ausgewählten Claims das eigentliche Event zu erzeugen
-- aus den Claims, Kommentaren und Begründungen einen Forschungsbericht zu erzeugen
+- aus den ausgewählten Thesen das eigentliche Event zu erzeugen
+- aus den Thesen, Kommentaren und Begründungen einen Forschungsbericht zu erzeugen
 
 Der Bericht ist dabei nicht bloß eine technische Ausgabe, sondern die dokumentierte genealogische Argumentation.
 
 ---
 
-## Verhältnis von Claim, Bericht und Event
+## Verhältnis von These, Bericht und Event
 
 Das Modul unterscheidet drei Ebenen:
 
-### Claim
-Der Claim ist die einzelne Aussage oder Beobachtung aus einer Quelle.
+### These
+Der These ist die einzelne Aussage oder Beobachtung aus einer Quelle.
 
 ### Bericht / Schlussfolgerung
-Der Bericht fasst mehrere Claims zusammen, dokumentiert ihre Bewertung und formuliert die genealogische Begründung.
+Der Bericht fasst mehrere Thesen zusammen, dokumentiert ihre Bewertung und formuliert die genealogische Begründung.
 
 ### Event
 Das Event ist das Ergebnis einer Entscheidung und wird in den eigentlichen Stammbaum übernommen.
@@ -148,28 +148,28 @@ Dadurch wird nachvollziehbar, auf welcher Grundlage ein Event entstanden ist und
 
 ---
 
-## Umgang mit abgeschlossenen Claims
+## Umgang mit abgeschlossenen Thesen
 
-Ein wichtiger Teil des Konzepts ist der Umgang mit Claims, die bereits bearbeitet wurden.
+Ein wichtiger Teil des Konzepts ist der Umgang mit Thesen, die bereits bearbeitet wurden.
 
-Wenn ein Forschungsbericht erstellt und daraus ein Event erzeugt wurde, gelten die verwendeten Claims grundsätzlich als abgeschlossen.  
+Wenn ein Forschungsbericht erstellt und daraus ein Event erzeugt wurde, gelten die verwendeten Thesen grundsätzlich als abgeschlossen.  
 Abgeschlossen bedeutet jedoch nicht, dass sie gelöscht oder inhaltlich entwertet werden.
 
 Stattdessen gilt:
 
-- Der Claim bleibt vollständig erhalten.
-- Der Claim bleibt Teil der dokumentierten Argumentation.
-- Der Claim kann später erneut herangezogen werden.
-- Der Claim muss aber nicht dauerhaft in der normalen Personenansicht als offener Arbeitsfall sichtbar bleiben.
+- Der These bleibt vollständig erhalten.
+- Der These bleibt Teil der dokumentierten Argumentation.
+- Der These kann später erneut herangezogen werden.
+- Der These muss aber nicht dauerhaft in der normalen Personenansicht als offener Arbeitsfall sichtbar bleiben.
 
-Deshalb soll das Modul ermöglichen, abgeschlossene Claims in der Standardansicht auszublenden.  
+Deshalb soll das Modul ermöglichen, abgeschlossene Thesen in der Standardansicht auszublenden.  
 Ob dies automatisch geschieht oder vom Anwender per Checkbox entschieden wird, soll bewusst flexibel gehalten werden.
 
 Dadurch entsteht ein sinnvoller Unterschied zwischen:
 
-- offenen Claims im aktiven Forschungsprozess
-- bereits berücksichtigten Claims
-- erneut reaktivierten Claims, wenn neue Evidenz hinzukommt
+- offenen Thesen im aktiven Forschungsprozess
+- bereits berücksichtigten Thesen
+- erneut reaktivierten Thesen, wenn neue Evidenz hinzukommt
 
 ---
 
@@ -178,8 +178,8 @@ Dadurch entsteht ein sinnvoller Unterschied zwischen:
 Genealogische Forschung ist grundsätzlich revisierbar.  
 Darum darf ein Forschungsbericht nicht als endgültiger Endzustand verstanden werden.
 
-Wenn später neue Claims hinzukommen, soll der bestehende Bericht erneut geöffnet, erweitert und überarbeitet werden können.  
-Auch bereits ausgeblendete Claims sollen im Builder wieder einblendbar sein, damit frühere Entscheidungen überprüft oder neu gewichtet werden können.
+Wenn später neue Thesen hinzukommen, soll der bestehende Bericht erneut geöffnet, erweitert und überarbeitet werden können.  
+Auch bereits ausgeblendete Thesen sollen im Builder wieder einblendbar sein, damit frühere Entscheidungen überprüft oder neu gewichtet werden können.
 
 Der Builder ist damit kein einmaliger Export, sondern eine fortschreibbare Arbeitsumgebung für den aktuellen Forschungsstand.
 
@@ -190,7 +190,7 @@ Der Builder ist damit kein einmaliger Export, sondern eine fortschreibbare Arbei
 Das Modul ist unabhängig, aber anschlussfähig.
 
 Es soll insbesondere mit einem Transkriptionsmodul zusammenarbeiten können, ohne von diesem abhängig zu sein.  
-Transkriptionen können eine wichtige Grundlage für Claims sein, genau wie andere Quellenarten.
+Transkriptionen können eine wichtige Grundlage für Thesen sein, genau wie andere Quellenarten.
 
 Damit wird zugleich berücksichtigt, dass genealogische Quellen nicht nur aus Bilddateien bestehen, sondern zum Beispiel auch aus:
 
@@ -207,7 +207,7 @@ Das Modul soll daher nicht auf eine einzelne Quellengattung beschränkt sein.
 
 ## Forschungsfall als übergeordneter Container
 
-Das Modul soll nicht nur einzelne Claims verwalten, sondern auch komplexere genealogische Fragestellungen strukturiert zusammenhalten können.
+Das Modul soll nicht nur einzelne Thesen verwalten, sondern auch komplexere genealogische Fragestellungen strukturiert zusammenhalten können.
 
 Dafür wird ein eigenständiger **Forschungsfall** als übergeordneter Container vorgesehen.  
 Ein Forschungsfall beschreibt eine genealogische Fragestellung oder ein zusammenhängendes Untersuchungsfeld.
@@ -228,7 +228,7 @@ Ein Forschungsfall kann insbesondere verknüpfen mit:
 - Personen
 - Quellen
 - Transkriptionen
-- Claims
+- Thesen
 - Forschungsberichten
 - genealogischen Events
 - Forschungsaufgaben
@@ -241,7 +241,7 @@ Dadurch eignet sich der Forschungsfall besonders für personenübergreifende ode
 
 Ein Forschungsfall soll eigene Notizen unterstützen.
 
-Diese Notizen dienen nicht als Ersatz für Claims oder Berichte, sondern als freier Arbeitsraum auf Fall-Ebene.  
+Diese Notizen dienen nicht als Ersatz für Thesen oder Berichte, sondern als freier Arbeitsraum auf Fall-Ebene.  
 Dort können zum Beispiel festgehalten werden:
 
 - die eigentliche Forschungsfrage
@@ -250,21 +250,21 @@ Dort können zum Beispiel festgehalten werden:
 - offene Probleme
 - methodische Hinweise
 - nächste sinnvolle Schritte
-- allgemeine Einordnungen, die nicht in einen einzelnen Claim passen
+- allgemeine Einordnungen, die nicht in einen einzelnen These passen
 
 Damit erhält der Forschungsfall neben seiner Verlinkungsfunktion auch eine eigene fachliche Arbeitsoberfläche.
 
 ---
 
-## Verhältnis von Forschungsfall und Claim
+## Verhältnis von Forschungsfall und These
 
 Der Forschungsfall ist nicht die eigentliche Evidenzeinheit.  
-Diese Rolle bleibt beim Claim.
+Diese Rolle bleibt beim These.
 
-Der Forschungsfall dient vielmehr dazu, mehrere Claims in einem größeren analytischen Zusammenhang zu organisieren.  
+Der Forschungsfall dient vielmehr dazu, mehrere Thesen in einem größeren analytischen Zusammenhang zu organisieren.  
 Das ist insbesondere dann wichtig, wenn eine genealogische Fragestellung nicht nur eine Person oder nicht nur einen einzelnen Eventtyp betrifft.
 
-Claims bleiben daher eigenständige Forschungsbausteine.  
+Thesen bleiben daher eigenständige Forschungsbausteine.  
 Sie können unabhängig existieren, aber zusätzlich einem Forschungsfall zugeordnet werden.
 
 ---
@@ -314,11 +314,11 @@ Damit würde die Arbeitsorganisation besser an reale genealogische Forschung ang
 
 Der geplante Modulname **Research Manager** betont diese übergreifende Funktion.
 
-Das Modul verwaltet nicht nur einzelne Claims, sondern den gesamten Zusammenhang aus:
+Das Modul verwaltet nicht nur einzelne Thesen, sondern den gesamten Zusammenhang aus:
 
 - Fragestellung
 - Quelle
-- Claim
+- These
 - Forschungsaufgabe
 - Bericht
 - genealogischer Schlussfolgerung
@@ -331,11 +331,11 @@ Der Research Manager ist damit die organisatorische und fachliche Ebene für evi
 
 Das Modul folgt den folgenden Grundgedanken:
 
-Ein Claim ist keine bloße Notiz.  
-Ein Claim ist keine bloße Quellenverknüpfung.  
-Ein Claim ist auch noch kein fertiges Event.
+Ein These ist keine bloße Notiz.  
+Ein These ist keine bloße Quellenverknüpfung.  
+Ein These ist auch noch kein fertiges Event.
 
-Ein Claim ist ein eigenständiger, strukturierter Forschungsbaustein zwischen Quelle und genealogischer Schlussfolgerung.
+Ein These ist ein eigenständiger, strukturierter Forschungsbaustein zwischen Quelle und genealogischer Schlussfolgerung.
 
 Das Modul soll deshalb:
 
@@ -345,7 +345,7 @@ Das Modul soll deshalb:
 - widersprüchliche Angaben zulassen
 - Berichte und Begründungen unterstützen
 - Entscheidungen nachvollziehbar machen
-- abgeschlossene Claims ausblendbar, aber nicht unsichtbar machen
+- abgeschlossene Thesen ausblendbar, aber nicht unsichtbar machen
 - spätere Revisionen ermöglichen
 
 ---
@@ -354,6 +354,6 @@ Das Modul soll deshalb:
 
 Das geplante Reserach Manager soll webtrees um eine evidenzbasierte Forschungsebene erweitern.
 
-Im Zentrum steht nicht das sofortige Eintragen fertiger Fakten, sondern der nachvollziehbare Weg von der Quelle über einzelne Claims hin zu einer begründeten genealogischen Schlussfolgerung.
+Im Zentrum steht nicht das sofortige Eintragen fertiger Fakten, sondern der nachvollziehbare Weg von der Quelle über einzelne Thesen hin zu einer begründeten genealogischen Schlussfolgerung.
 
 Dadurch kann webtrees stärker vom rein ergebnisorientierten Arbeiten in Richtung eines dokumentierten Forschungsprozesses erweitert werden.
