@@ -9,6 +9,21 @@ For that reason, the terminology distinguishes carefully between source-based st
 
 ---
 
+## Modeling Note
+
+Not every term in this document represents a separate persisted MVP entity.
+
+Some terms describe:
+
+- stored core entities
+- derived views
+- conceptual workflow elements
+- existing external webtrees objects
+
+This distinction is important for implementation planning and MVP scope control.
+
+---
+
 ## Thesis
 
 A **Thesis** is a structured research statement.
@@ -170,6 +185,10 @@ Research Context presents existing research data related to a person in a more a
 
 Its purpose is to make person-centered research easier to review without introducing another note object.
 
+Research Context is a derived person-level research view.
+
+It is not a separate stored object and does not have an independent persistence identity in MVP.
+
 ---
 
 ## Extracted Theses
@@ -181,6 +200,10 @@ It is not a separate stored object.
 Extracted Theses presents all Theses derived from a given Source in one place.
 
 Its purpose is to strengthen source-centered research work and reduce the risk that research becomes purely person-centered.
+
+Extracted Theses is a derived source-level view.
+
+It is not a separate stored object and should not duplicate Thesis persistence.
 
 ---
 
@@ -197,6 +220,10 @@ Within the Research Manager, FAN refers to the wider contextual network around a
 This concept is important because genealogical conclusions often depend not only on direct person data, but also on recurring surrounding people and social context.
 
 FAN should be visible as a dedicated person-level context view.
+
+FAN is a dedicated context view in the person profile.
+
+It is not a standalone persisted object. The persisted contextual unit in MVP is the FAN Entry.
 
 ---
 
@@ -265,6 +292,8 @@ It reflects the best current genealogical judgment based on the evidence present
 
 A Conclusion may later change if new Theses or new context appear.
 
+In MVP, the Conclusion is treated as part of the **Research Report**, not as a separate persisted entity.
+
 ---
 
 ## Research Case
@@ -320,7 +349,8 @@ A Research Task is not the same as a Research Case.
 - A **Research Case** is the analytical frame
 - A **Research Task** is a practical step within or around that frame
 
-Tasks should be linkable in flexible ways so that they can support real research workflows.
+Research Tasks are conceptually important, but they are not modeled as a dedicated MVP persistence object in Phase 1.
+They may later be linked or integrated more deeply in a future phase.
 
 ---
 
