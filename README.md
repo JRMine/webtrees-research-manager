@@ -1,215 +1,282 @@
 # Research Manager
 
-Ein konzeptionelles webtrees-Modul für evidenzbasiertes genealogisches Arbeiten.
+A conceptual webtrees module for evidence-based genealogical research.
 
-## Idee
+## Overview
 
-Research Manager erweitert webtrees um eine Forschungsebene zwischen **Quelle** und **fertigem genealogischem Event**.
+Research Manager adds a dedicated research layer between **source material** and the **final genealogical event** recorded in the tree.
 
-Im Zentrum steht nicht das sofortige Eintragen eines Ergebnisses, sondern der nachvollziehbare Weg dorthin – bei zugleich möglichst einfacher Bedienbarkeit.
+Its purpose is not to encourage immediate data entry, but to make the reasoning process behind genealogical conclusions visible, structured, and revisable.
 
-Research Manager soll deshalb keine komplexe zweite Forschungswelt neben webtrees schaffen, sondern mit wenigen klaren Objekten und gut zugänglichen Ansichten arbeiten:
-
-- Thesen aus Quellen als strukturierte Forschungseinheiten erfassen
-- Thesen Personen und optional Forschungsfällen zuordnen
-- Thesen quellenbezogen und personenbezogen sichtbar machen
-- konkurrierende oder unsichere Thesen vergleichen und bewerten
-- daraus einen Forschungsbericht und eine Schlussfolgerung ableiten
-- anschließend ein eigentliches Event in webtrees erzeugen
-
-Damit soll genealogische Forschung in webtrees nicht nur ergebnisorientiert, sondern auch **prozess-, evidenz- und kontextbasiert** dokumentierbar werden, ohne die Nutzbarkeit für Laien unnötig zu verschlechtern.
+The module is designed to support a practical research workflow while remaining usable for non-expert users. It should strengthen methodology without becoming a second complex application beside webtrees.
 
 ---
 
-## Ziel des Moduls
+## Core Idea
 
-Research Manager soll eine Arbeitsumgebung für genealogische Analyse schaffen.
+Research Manager is built around a simple principle:
 
-Das Modul ist gedacht für:
+**Do not turn every finding directly into a tree event.**
 
-- die strukturierte Erfassung von Thesen aus Quellen
-- die Bewertung konkurrierender oder unsicherer Aussagen
-- die Dokumentation genealogischer Begründungen
-- die Organisation komplexerer Forschungsfragen in Forschungsfällen
-- die Verbindung von Quelle, These, Bericht und Event
-- die Sichtbarmachung offener Forschung direkt im Personen- und Quellenkontext
-- die einfache Erfassung von Forschungsnetzwerken im Sinne von FAN (Friends, Associates, Neighbors)
-- die Unterstützung methodischer Forschungsschritte, ohne dafür zu viele neue Objekte einzuführen
+Instead, the module introduces a research workflow in which users can:
 
+- capture source-based statements as **Theses**
+- link Theses to one or more persons
+- organize related work in **Research Cases**
+- compare and evaluate conflicting or uncertain Theses
+- document reasoning in a **Research Report**
+- derive a **Conclusion**
+- create a final genealogical **Event** only when the research is sufficiently resolved
 
-Das Modul ist bewusst unabhängig von einem Transkriptionsmodul gedacht, soll aber später gut mit Transkriptionen zusammenarbeiten können.
+This makes genealogical work in webtrees not only result-oriented, but also **process-based, evidence-based, and context-aware**.
 
 ---
 
-## Kernkonzepte
+## Goals
 
-### These
-Ein These ist ein einzelner, strukturierter Forschungsbaustein.  
-Er entsteht aus einer Quelle, einer Transkription oder einer anderen nachvollziehbaren Beobachtung und bezieht sich auf mindestens eine Person.
+Research Manager is intended to provide a practical working environment for genealogical analysis.
 
-Ein These ist **nicht** identisch mit einem fertigen Event.  
-Er ist eine quellengebundene Aussage im Forschungsprozess.
+The module is designed to support:
 
-### Zieltyp
-Ein These kann optional einem Zieltyp zugeordnet werden, zum Beispiel `BIRT`, `DEAT`, `MARR` oder `RESI`.
+- structured capture of Theses from sources
+- evaluation of conflicting or uncertain statements
+- documentation of genealogical reasoning
+- organization of complex research questions in Research Cases
+- explicit separation between research statements and final tree events
+- visibility of ongoing research directly in person and source context
+- lightweight capture of contextual research networks in the sense of FAN (*Friends, Associates, Neighbors*)
+- methodologically stronger workflows without excessive object complexity
 
-Der Zieltyp beschreibt, zu welcher Art genealogischer Aussage ein These voraussichtlich gehört, ohne ihn bereits in ein fertiges Event zu verwandeln.
+The module is deliberately independent from any transcription module, but should later work well alongside transcription-based workflows.
 
-### Forschungsfall
-Ein Forschungsfall ist ein übergeordneter Container für eine genealogische Fragestellung.
+---
 
-Er dient dazu, zusammengehörige Elemente in einem analytischen Zusammenhang zu organisieren, zum Beispiel:
+## Core Concepts
 
-- Personen
-- Quellen
-- Transkriptionen
-- Thesen
-- Berichte
-- Events
-- Forschungsaufgaben
+### Thesis
+A Thesis is a structured research statement derived from a source, a transcription, or another traceable research observation.
 
-Der Forschungsfall speichert diese Inhalte nicht zwingend selbst, sondern hält sie in einem gemeinsamen Arbeitszusammenhang zusammen.
+A Thesis is **not** the same as a final genealogical Event.  
+It is a source-based unit of research reasoning.
 
-### Forschungsbericht
-Ein Forschungsbericht dokumentiert den aktuellen Forschungsstand.
+### Target Type
+A Thesis may optionally be assigned a target type such as `BIRT`, `DEAT`, `MARR`, or `RESI`.
 
-Er fasst mehrere Thesen zusammen, macht ihre Bewertung sichtbar und hält die genealogische Schlussfolgerung fest, die daraus abgeleitet wurde.
+The target type indicates what kind of genealogical statement the Thesis may eventually support, without turning it into a final Event.
+
+### Research Case
+A Research Case is a container for a genealogical question or research problem.
+
+It organizes related elements such as:
+
+- persons
+- sources
+- transcriptions
+- Theses
+- reports
+- events
+- research tasks
+- contextual FAN work
+
+A Research Case is primarily an analytical frame, not necessarily a storage location for all content itself.
+
+### Research Report
+A Research Report documents the current state of analysis.
+
+It brings multiple Theses together, makes their evaluation visible, and records the reasoning that leads to a current Conclusion.
+
+### Conclusion
+A Conclusion is the current reasoned outcome of the research process.
+
+It is based on the comparison and evaluation of available Theses and may later lead to a final genealogical Event.
 
 ### Event
-Ein Event ist das eigentliche genealogische Ergebnis im Stammbaum.
+An Event is the final genealogical result entered into the tree.
 
-Im Unterschied zum These ist ein Event bereits die aktuell gewählte genealogische Entscheidung.
+Unlike a Thesis, an Event represents the currently accepted genealogical decision.
+
+---
+
+## Context Views
+
+To keep the model usable, not every methodological need becomes a new stored object. Some research perspectives are better represented as **derived views**.
 
 ### Research Context
+Research Context is a **person-level derived view**, not a separate stored object.
 
-Research Context ist keine eigene neue Dateneinheit, sondern eine abgeleitete Sicht auf bereits vorhandene Forschungsobjekte.
+It should appear as a tab in the person profile and make ongoing research easier to review by showing, for example:
 
-Im Personenprofil soll ein eigener Tab sichtbar machen:
+- open Theses linked to the person
+- relevant reports
+- unresolved conflicts
+- related research tasks
+- linked FAN Entries
+- chronologically relevant research observations derived from existing objects
 
-- zugeordnete offene Thesen
-- chronologisch relevante Forschungsbeobachtungen
-- beteiligte Forschungsberichte
-- offene Konflikte
-- zugehörige Forschungsaufgaben
-
-Damit entsteht eine personenbezogene Forschungssicht, ohne ein zusätzliches Notizobjekt einführen zu müssen.
+This creates a practical research-oriented person view without introducing another note type users would need to maintain.
 
 ### Extracted Theses
+Extracted Theses is a **source-level derived view**, not a separate stored object.
 
-Extracted Theses ist eine quellenbezogene Sicht auf alle aus einer Quelle abgeleiteten Thesen.
+It should appear as a tab in the source view and show all Theses derived from that source, including:
 
-Im Quellenkontext soll ein eigener Tab sichtbar machen:
+- Thesis text
+- linked persons
+- Thesis status
+- optional target type
+- report usage, where relevant
 
-- welche Thesen aus der Quelle gewonnen wurden
-- welche Personen davon betroffen sind
-- welchen Status diese Thesen haben
-- in welchen Berichten sie verwendet wurden
+This strengthens source-centered research work without duplicating data in another object type.
 
-Damit wird die quellenzentrierte Arbeitsweise gestärkt, ohne das Modell zu verkomplizieren.
+---
+
+## FAN
+
+Research Manager should explicitly support contextual research in the sense of **FAN**:
+
+- Friends
+- Associates
+- Neighbors
+
+FAN work is important in genealogical analysis, but it is often poorly represented in genealogy software.
+
+To address this, the person profile should expose a dedicated **FAN** tab that makes contextual research easy to capture and review.
 
 ### FAN Entry
+A FAN Entry is a lightweight contextual research record.
 
-Ein FAN Entry ist ein leichter Forschungseintrag zur Erfassung von Kontextpersonen im Sinne von FAN (*Friends, Associates, Neighbors*).
+It is intended to capture relevant people in the research environment of a focus person without requiring the immediate creation of a full GEDCOM person.
 
-FAN Entries sind bewusst keine vollwertigen GEDCOM-Personen. Sie dienen dazu, Forschungszusammenhänge sichtbar zu machen, ohne den eigentlichen Stammbaum mit unsicheren oder nur kontextuell relevanten Personen aufzublähen.
+A FAN Entry may later be:
 
-Ein FAN Entry kann später optional mit einer bestehenden GEDCOM-Person verknüpft oder in eine solche überführt werden.
+- linked to an existing GEDCOM person
+- kept as a lightweight contextual record
+- converted into a full tree person if needed
 
----
-
-## Geplanter Workflow
-
-Der aktuelle konzeptionelle Workflow besteht aus sieben fachlichen Phasen:
-
-1. Forschungsfall anlegen oder bestehenden Forschungsfall öffnen
-2. Forschungsfrage und Arbeitsrichtung klären
-3. These aus Quelle, Transkription oder Personenkontext erfassen
-4. These im Personenkontext, Quellenkontext und gegebenenfalls im Forschungsfall sichtbar machen
-5. Thesen im Forschungsbericht-Builder vergleichen und bewerten
-6. Bericht und Schlussfolgerung erstellen
-7. Event erzeugen oder den Forschungsstand offen weiterführen
-
-Dieser Ablauf ist bewusst **revisierbar**.
-
-Wenn neue Evidenz hinzukommt, können Thesen erneut berücksichtigt, Berichte überarbeitet, FAN-Zusammenhänge ergänzt und Schlussfolgerungen angepasst werden.
+This allows users to document research context quickly and with low friction.
 
 ---
 
-## Forschungsaufgaben
+## Planned Workflow
 
-Research Manager unterscheidet zwischen:
+The current conceptual workflow consists of seven functional phases:
 
-- **Forschungsfall** als analytischer Klammer
-- **Forschungsaufgabe** als konkretem Arbeitsschritt
+1. Open or create a Research Case
+2. Clarify the research question
+3. Capture a Thesis from a source, transcription, or person context
+4. Make the Thesis visible in person context, source context, and optionally case context
+5. Compare and evaluate Theses in the Research Report builder
+6. Create or update the Research Report and write a Conclusion
+7. Create a final Event or keep the research open for further revision
 
-Forschungsaufgaben sollen in Forschungsfälle eingebunden werden können, ohne dass dafür zwingend ein eigenes System von Unteraufgaben nötig ist.
+This workflow is deliberately **revisable**.
 
-Langfristig soll dabei auch geprüft werden, wie Aufgaben flexibler mit Quellen oder Forschungsfällen verknüpft werden können, da die bestehende Bindung an Personen oder Familien in vielen Forschungssituationen zu eng ist.
-
----
-
-## Status
-
-Dieses Repository ist derzeit ein **Konzept- und Planungsprojekt**.
-
-Im Moment enthält es noch keine Implementierung des Moduls, sondern dokumentiert:
-
-- die fachliche Zielsetzung
-- die Begriffe
-- den geplanten Workflow
-- die Struktur des Modells
-
-Der Schwerpunkt liegt aktuell auf einem tragfähigen Konzept, bevor technische Details wie Datenmodell, Persistenz oder UI-Umsetzung festgelegt werden.
+When new evidence appears, Theses can be reconsidered, reports can be updated, FAN context can be expanded, and Conclusions can be changed.
 
 ---
 
-## Dokumentation
+## Research Tasks
 
-Die Detaildokumentation befindet sich im Ordner [`docs`](docs/).
+Research Manager distinguishes between:
 
-- [`docs/concept.md`](docs/concept.md) – ausführlicher Konzeptentwurf
-- [`docs/terms.md`](docs/terms.md) – Begriffe und Arbeitsdefinitionen
-- [`docs/workflow.md`](docs/workflow.md) – geplanter Ablauf aus Nutzersicht
-- [`docs/methodology-alignment.md`](docs/methodology-alignment.md)
-- [`docs/data-model-minimal.md`](docs/data-model-minimal.md) – minimal data model for Research Context, Extracted Theses and FAN Entry
+- **Research Case** as the analytical frame
+- **Research Task** as a concrete work step
 
+Research Tasks should be usable within Research Cases without forcing a complex subtask system.
 
----
-
-## Abgrenzung
-
-Research Manager ist nicht:
-
-- nur ein Notizsystem
-- nur eine Aufgabenverwaltung
-- nur ein Transkriptionsmodul
-- nur eine zweite Kopie normaler GEDCOM-Events
-
-Research Manager versteht sich als eigenständige Forschungsebene zwischen Quelle und Stammbaum-Eintrag.
+Over time, the module should also support more flexible links between tasks, sources, and Research Cases, since strict attachment only to persons or families is often too limiting in real research work.
 
 ---
 
-## Vorläufiges Zielbild
+## Minimal Modeling Principle
 
-Langfristig soll Research Manager helfen, webtrees um eine nachvollziehbare evidenzbasierte und zugleich alltagstaugliche Arbeitsweise zu erweitern:
+Research Manager should remain usable for ordinary webtrees users.
 
-**Quelle → These → Vergleich/Bewertung → Bericht → Schlussfolgerung → Event**
+Therefore:
 
-Ergänzend dazu sollen zwei Kontexte besser sichtbar werden:
+- keep the number of core objects small
+- prefer derived views over additional note objects
+- avoid building a second full person system
+- keep data entry fast and understandable
+- support context and reasoning without forcing heavyweight workflows
 
-- **Research Context** im Personenprofil
-- **Extracted Theses** im Quellenkontext
+In particular:
 
-Zusätzlich soll ein leichter FAN-Ansatz helfen, das Forschungsumfeld einer Person besser zu erfassen, ohne daraus sofort vollständige Stammbaumpersonen machen zu müssen.
+- **Research Context** should be a derived person-level view
+- **Extracted Theses** should be a derived source-level view
+- **FAN Entry** should be the only new lightweight context object introduced for this area
+
+This keeps the model small while still allowing better visibility of context, analysis, and source-derived research data.
 
 ---
-## Projektname
 
-Der Name **Research Manager** ist derzeit ein Arbeitsname.  
-Er betont die übergreifende Funktion des Moduls als organisatorische und analytische Arbeitsumgebung für genealogische Forschung.
+## Scope and Non-Goals
+
+Research Manager is **not**:
+
+- just a note-taking system
+- just a task manager
+- just a transcription module
+- just a duplicate layer for normal GEDCOM events
+- a second full genealogy application inside webtrees
+
+Its purpose is to create a clear research layer between source material and final tree data.
 
 ---
 
-## Lizenz
+## Current Status
 
-Noch nicht festgelegt.
+This repository is currently a **concept and planning project**.
+
+At the moment, it does not yet contain an implementation of the module. Instead, it documents:
+
+- the functional goals
+- the terminology
+- the planned workflow
+- the minimal data model
+- the methodological direction of the project
+
+The current focus is to establish a stable and usable concept before implementation details such as persistence, UI behavior, and technical architecture are finalized.
+
+---
+
+## Documentation
+
+Detailed documentation is available in the [`docs`](docs/) directory.
+
+- [`docs/concept.md`](docs/concept.md) – detailed concept draft
+- [`docs/terms.md`](docs/terms.md) – terminology and working definitions
+- [`docs/workflow.md`](docs/workflow.md) – planned workflow from the user perspective
+- [`docs/methodology-alignment.md`](docs/methodology-alignment.md) – alignment with key methodological principles
+- [`docs/data-model-minimal.md`](docs/data-model-minimal.md) – minimal data model for Research Context, Extracted Theses, and FAN Entry
+
+---
+
+## Long-Term Direction
+
+The long-term goal of Research Manager is to extend webtrees with a research workflow that is both methodologically stronger and practically usable.
+
+At its core, the intended path is:
+
+**Source → Thesis → Comparison / Evaluation → Report → Conclusion → Event**
+
+In addition, the module should make two kinds of context more visible:
+
+- **Research Context** in the person profile
+- **Extracted Theses** in the source view
+
+A lightweight FAN approach should further help users document the wider research environment of a person without forcing every contextual individual into the tree structure immediately.
+
+---
+
+## Project Name
+
+**Research Manager** is currently a working title.
+
+It reflects the intended role of the module as an organizational and analytical workspace for genealogical research within webtrees.
+
+---
+
+## License
+
+Not yet defined.
