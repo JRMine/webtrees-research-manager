@@ -109,6 +109,22 @@ Der These ist damit weder reine Quelle noch fertiges Event, sondern die verbinde
 
 ---
 
+## Minimal Modeling Principle
+
+The module should remain usable for non-expert users.
+
+Therefore, not every methodological need should become a separate stored object.
+
+In particular:
+
+- **Research Context** should be a derived person-level view
+- **Extracted Theses** should be a derived source-level view
+- **FAN Entry** should be the only new lightweight context object introduced for this area
+
+This keeps the object model small while still allowing better visibility of context, analysis and source-derived research data.
+
+---
+
 ## Forschungsbericht-Builder
 
 Das Herzstück des Moduls ist eine Arbeitsansicht, die vorläufig als **Forschungsbericht-Builder** bezeichnet wird.
