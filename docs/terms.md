@@ -2,10 +2,10 @@
 
 This document defines the core terms used by the Research Manager in their current conceptual meaning.
 
-These terms are intended to support a shared functional understanding of the module before implementation details are finalized.
+Its purpose is to create a shared functional understanding of the module before implementation details are finalized.
 
-The module is designed to describe a research layer between source material and final tree data.  
-For that reason, the terminology distinguishes carefully between source-based statements, analytical working objects, reasoned conclusions, and final genealogical Events.
+Research Manager is designed as a research layer between source material and final tree data.  
+For that reason, the terminology distinguishes carefully between source-based statements, analytical working objects, reasoned conclusions, derived views, and final genealogical Events.
 
 ---
 
@@ -43,6 +43,9 @@ A Thesis may be:
 
 A Thesis is therefore the central research unit between the source and the final genealogical decision.
 
+### MVP modeling status
+**Persisted MVP entity**
+
 ---
 
 ## Source
@@ -64,6 +67,10 @@ The Source provides the evidentiary basis from which one or more Theses may be d
 
 Research Manager should remain source-aware even when working in person context.
 
+### MVP modeling status
+**Existing external webtrees object**  
+Not a new Research Manager entity.
+
 ---
 
 ## Transcription
@@ -74,6 +81,10 @@ A Transcription may serve as an input context for Theses, but it is not required
 
 The module is intentionally independent from a transcription system.  
 Theses must also be possible where no transcription exists.
+
+### MVP modeling status
+**External or related input context**  
+Not a required standalone MVP Research Manager entity.
 
 ---
 
@@ -91,6 +102,10 @@ This allows the module to represent:
 
 The Person Link is important because genealogical evaluation is often performed in person context even when the source itself is broader.
 
+### MVP modeling status
+**Relation / linking concept**  
+Not a standalone business object.
+
 ---
 
 ## Target Type
@@ -106,6 +121,10 @@ It indicates what kind of genealogical Event the Thesis may eventually support, 
 
 A Target Type helps structure analysis and later event creation, but it does not turn the Thesis into a final Event.
 
+### MVP modeling status
+**Field-level concept within Thesis**  
+Not a standalone entity.
+
 ---
 
 ## Event
@@ -118,6 +137,10 @@ Unlike a Thesis, an Event is not a provisional source-based statement within the
 It is the final tree-level expression of a conclusion.
 
 Research Manager deliberately distinguishes between Thesis and Event so that reasoning remains visible.
+
+### MVP modeling status
+**Existing external webtrees object**  
+Not a new Research Manager entity.
 
 ---
 
@@ -133,11 +156,15 @@ This makes later transition easier while still preserving the distinction betwee
 
 The purpose of this concept is to support traceability without collapsing research and result into the same object.
 
+### MVP modeling status
+**Conceptual modeling principle**  
+Not a standalone entity.
+
 ---
 
 ## Comment
 
-A **Comment** is a note attached to a Thesis, Report, or related research object.
+A **Comment** is a note attached to a Thesis, Research Report, or related research object.
 
 Comments may contain:
 
@@ -149,6 +176,10 @@ Comments may contain:
 
 Comments are not themselves Theses.  
 They supplement the research workflow but do not replace structured research statements.
+
+### MVP modeling status
+**Field-level or embedded concept**  
+Not a standalone MVP entity.
 
 ---
 
@@ -164,7 +195,11 @@ Evaluation may include:
 - working assumptions
 - reasons for preferring one Thesis over another
 
-Evaluation is part of the analytical process and should remain visible in Reports and related views.
+Evaluation is part of the analytical process and should remain visible in Research Reports and related views.
+
+### MVP modeling status
+**Analytical concept**  
+May be represented inside reports, notes, or structured fields, but not as a separate MVP entity.
 
 ---
 
@@ -172,22 +207,22 @@ Evaluation is part of the analytical process and should remain visible in Report
 
 **Research Context** is a derived person-level research view.
 
-It is not a separate stored object.
+It is not a separate stored object and does not have an independent persistence identity in MVP.
 
 Research Context presents existing research data related to a person in a more analytical form, such as:
 
 - linked Theses
-- relevant Reports
+- relevant Research Reports
 - unresolved conflicts
-- related Research Tasks
+- related research activity
 - linked FAN Entries
 - chronologically relevant research observations derived from existing objects
 
 Its purpose is to make person-centered research easier to review without introducing another note object.
 
-Research Context is a derived person-level research view.
-
-It is not a separate stored object and does not have an independent persistence identity in MVP.
+### MVP modeling status
+**Derived MVP view**  
+Not a persisted entity.
 
 ---
 
@@ -195,15 +230,15 @@ It is not a separate stored object and does not have an independent persistence 
 
 **Extracted Theses** is a derived source-level view.
 
-It is not a separate stored object.
+It is not a separate stored object and should not duplicate Thesis persistence.
 
 Extracted Theses presents all Theses derived from a given Source in one place.
 
 Its purpose is to strengthen source-centered research work and reduce the risk that research becomes purely person-centered.
 
-Extracted Theses is a derived source-level view.
-
-It is not a separate stored object and should not duplicate Thesis persistence.
+### MVP modeling status
+**Derived MVP view**  
+Not a persisted entity.
 
 ---
 
@@ -221,9 +256,10 @@ This concept is important because genealogical conclusions often depend not only
 
 FAN should be visible as a dedicated person-level context view.
 
-FAN is a dedicated context view in the person profile.
-
-It is not a standalone persisted object. The persisted contextual unit in MVP is the FAN Entry.
+### MVP modeling status
+**Derived MVP view / UI context tab**  
+Not a standalone persisted object.  
+The persisted contextual unit in MVP is the **FAN Entry**.
 
 ---
 
@@ -248,6 +284,9 @@ Typical FAN situations include:
 - possible but not yet proven relatives
 - unidentified or only partially identified context persons
 
+### MVP modeling status
+**Persisted MVP entity**
+
 ---
 
 ## Research Report
@@ -260,6 +299,9 @@ A Research Report is more than a technical output.
 It is a documented research argument.
 
 It should remain revisable if new evidence appears.
+
+### MVP modeling status
+**Persisted MVP entity**
 
 ---
 
@@ -279,6 +321,10 @@ This builder should support tasks such as:
 The builder is not a one-time export mechanism.  
 It is an active analytical workspace.
 
+### MVP modeling status
+**Workflow / UI concept**  
+Not a separate persisted entity.
+
 ---
 
 ## Conclusion
@@ -293,6 +339,10 @@ It reflects the best current genealogical judgment based on the evidence present
 A Conclusion may later change if new Theses or new context appear.
 
 In MVP, the Conclusion is treated as part of the **Research Report**, not as a separate persisted entity.
+
+### MVP modeling status
+**Conceptual report component**  
+Not a standalone MVP entity.
 
 ---
 
@@ -312,6 +362,9 @@ A Research Case is especially useful when a problem spans:
 A Research Case is not the evidence unit itself.  
 That role remains with the Thesis.
 
+### MVP modeling status
+**Persisted MVP entity**
+
 ---
 
 ## Research Case Note
@@ -329,6 +382,10 @@ It is intended for case-level working material such as:
 
 A Research Case Note does not replace a Thesis or a Research Report.  
 It supports the broader working context.
+
+### MVP modeling status
+**Embedded or field-level concept within Research Case**  
+Not a separate MVP entity.
 
 ---
 
@@ -349,8 +406,12 @@ A Research Task is not the same as a Research Case.
 - A **Research Case** is the analytical frame
 - A **Research Task** is a practical step within or around that frame
 
-Research Tasks are conceptually important, but they are not modeled as a dedicated MVP persistence object in Phase 1.
+Research Tasks are conceptually important, but they are not modeled as a dedicated MVP persistence object in Phase 1.  
 They may later be linked or integrated more deeply in a future phase.
+
+### MVP modeling status
+**Conceptual workflow element**  
+Not a dedicated MVP persistence entity in Phase 1.
 
 ---
 
@@ -363,6 +424,9 @@ The name reflects the module’s intended role as an organizational and analytic
 The module is not meant to replace the tree.  
 It is meant to support the reasoning process that leads to better tree data.
 
+### MVP modeling status
+**Module-level concept / product name**
+
 ---
 
 ## Completed
@@ -373,6 +437,9 @@ Completed does not mean deleted or invalid.
 It only means that the Thesis is no longer part of the currently open default working set.
 
 Completed Theses should remain fully available for review and later reuse.
+
+### MVP modeling status
+**Workflow status concept**
 
 ---
 
@@ -390,6 +457,9 @@ It may still need:
 
 Open Theses should remain visible in normal working views.
 
+### MVP modeling status
+**Workflow status concept**
+
 ---
 
 ## Hidden
@@ -400,7 +470,10 @@ Hidden does not mean removed.
 
 The purpose of hiding is to reduce working noise while preserving traceability.
 
-A Hidden Thesis should still remain accessible in the Report Builder and in other deeper research views.
+A Hidden Thesis should still remain accessible in the Research Report Builder and in other deeper research views.
+
+### MVP modeling status
+**Workflow status concept**
 
 ---
 
@@ -417,6 +490,9 @@ This may happen when:
 
 Reactivation is an important part of the module because genealogical research must remain revisable.
 
+### MVP modeling status
+**Workflow status concept**
+
 ---
 
 ## Archived
@@ -427,6 +503,10 @@ Archiving should be used carefully and should not replace ordinary completion or
 
 The distinction matters because many research objects may still become relevant again later.
 
+### MVP modeling status
+**Potential workflow / lifecycle concept**  
+Not necessarily required for initial MVP implementation.
+
 ---
 
 ## Research State
@@ -436,14 +516,17 @@ The **Research State** is the current documented status of a research question.
 It is expressed through the combined presence of:
 
 - open and completed Theses
-- Reports
+- Research Reports
 - Conclusions
-- tasks
 - contextual FAN work
 - linked Events, where applicable
 
 The Research State is not a single field.  
 It is the current analytical picture produced by the module.
+
+### MVP modeling status
+**Aggregate conceptual state**  
+Not a standalone persisted entity.
 
 ---
 
