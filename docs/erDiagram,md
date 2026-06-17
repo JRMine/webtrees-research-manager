@@ -4,7 +4,8 @@ The following diagram distinguishes between stored research entities and derived
 - `Extracted Theses` is a source-level derived view
 - `FAN Entry` is the only new lightweight context entity
 
-
+````md
+```mermaid
 erDiagram
     PERSON {
         string xref
