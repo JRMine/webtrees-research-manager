@@ -1,3 +1,5 @@
+````md
+```mermaid
 erDiagram
     PERSON ||--o{ FAN_ENTRY : focus_person
     PERSON o{--o{ THESIS : linked_to
@@ -17,3 +19,4 @@ erDiagram
     RESEARCH_CONTEXT_VIEW }o--o{ RESEARCH_REPORT : shows
     RESEARCH_CONTEXT_VIEW }o--o{ FAN_ENTRY : shows
     EXTRACTED_THESES_VIEW }o--o{ THESIS : shows
+```
