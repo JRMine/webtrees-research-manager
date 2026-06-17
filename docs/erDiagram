@@ -1,0 +1,85 @@
+The following diagram distinguishes between stored research entities and derived views.
+
+- `Research Context` is a person-level derived view
+- `Extracted Theses` is a source-level derived view
+- `FAN Entry` is the only new lightweight context entity
+
+
+erDiagram
+    PERSON {
+        string xref
+    }
+
+    SOURCE {
+        string xref
+    }
+
+    RESEARCH_CASE {
+        int id
+        string title
+        string research_question
+        string status
+        string summary
+    }
+
+    THESIS {
+        int id
+        string statement_text
+        string status
+        string target_type
+        string note
+        int research_case_id
+        string source_xref
+    }
+
+    RESEARCH_REPORT {
+        int id
+        string title
+        string conclusion_text
+        string status
+        string summary
+        int research_case_id
+    }
+
+    FAN_ENTRY {
+        int id
+        string display_name
+        string fan_type
+        string note
+        string place_text
+        string time_span_text
+        int focus_person_id
+        int research_case_id
+        string source_xref
+        string linked_gedcom_person_xref
+    }
+
+    RESEARCH_CONTEXT_VIEW {
+        string derived_view
+    }
+
+    EXTRACTED_THESES_VIEW {
+        string derived_view
+    }
+
+    RESEARCH_CASE ||--o{ THESIS : contains
+    RESEARCH_CASE ||--o{ RESEARCH_REPORT : contains
+    RESEARCH_CASE ||--o{ FAN_ENTRY : groups
+
+    PERSON o{--o{ THESIS : linked_to
+    PERSON ||--o{ FAN_ENTRY : focus_person
+    PERSON o|--o{ FAN_ENTRY : gedcom_link
+
+    SOURCE o|--o{ THESIS : source_for
+    SOURCE o|--o{ FAN_ENTRY : optional_source
+
+    RESEARCH_REPORT o{--o{ THESIS : includes
+
+    PERSON ||--|| RESEARCH_CONTEXT_VIEW : has
+    SOURCE ||--|| EXTRACTED_THESES_VIEW : has
+
+    RESEARCH_CONTEXT_VIEW }o--o{ THESIS : shows
+    RESEARCH_CONTEXT_VIEW }o--o{ RESEARCH_REPORT : shows
+    RESEARCH_CONTEXT_VIEW }o--o{ FAN_ENTRY : shows
+
+    EXTRACTED_THESES_VIEW }o--o{ THESIS : shows
