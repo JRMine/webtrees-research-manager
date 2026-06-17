@@ -43,7 +43,7 @@ The only new lightweight object introduced for contextual work should be:
 
 ## Overview
 
-### Core objects
+### New persisted MVP entities
 - Research Case
 - Thesis
 - Research Report
@@ -53,6 +53,29 @@ The only new lightweight object introduced for contextual work should be:
 - Research Context
 - Extracted Theses
 - FAN
+
+### Existing external objects
+- Person
+- Source
+- Event
+
+### Not separate MVP entities
+- Conclusion
+- Research Task
+
+---
+
+## MVP Modeling Boundary
+
+The MVP should remain intentionally small.
+
+This means:
+
+- **Conclusion** is part of the Research Report in MVP, not a standalone persisted object.
+- **Research Task** is conceptually relevant, but is not modeled as a separate MVP persistence object in Phase 1.
+- **Person**, **Source**, and **Event** are existing webtrees objects and should be referenced, not recreated inside the Research Manager domain model.
+
+This boundary is important to prevent unnecessary object proliferation early in the project.
 
 ---
 
@@ -69,7 +92,7 @@ Research Context aggregates existing research data related to a person, such as:
 - open theses
 - relevant reports
 - unresolved conflicts
-- related research tasks
+- related research tasks: Research Tasks may later be linked into this view, but they are not a separate MVP persistence object in Phase 1.
 - linked FAN Entries
 - chronologically relevant research observations derived from existing objects
 
@@ -304,7 +327,9 @@ Minimal fields:
 - `status`
 - `summary` (optional)
 
-A report should be linkable to multiple theses.
+A report should be linkable to multiple theses. A Research Report contains the current documented reasoning and the current Conclusion for a research question.
+
+In MVP, the Conclusion is treated as part of the Research Report rather than as a separate persisted entity.
 
 ---
 
@@ -322,6 +347,8 @@ To protect usability, the first version should avoid:
 - advanced review workflows
 - multiple nested planning objects
 - anything that turns the module into a second research application beside webtrees
+- a separate Conclusion entity
+- a separate Research Task persistence model in MVP
 
 ---
 
