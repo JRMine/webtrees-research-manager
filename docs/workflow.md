@@ -43,6 +43,19 @@ Wenn die Bewertung ausreicht, kann aus der Schlussfolgerung ein genealogisches E
 
 Wenn der Stand noch offen ist, bleibt die Forschung im Research Manager sichtbar und revisierbar, ohne vorschnell in ein fertiges Stammbaum-Event überführt zu werden.
 
+## Context Views in the Workflow
+
+The workflow should not rely only on creating more objects.
+
+Two important research perspectives should be presented as derived views:
+
+- **Research Context** in the person profile
+- **Extracted Theses** in the source view
+
+In addition, the person profile should expose a dedicated **FAN** tab to make contextual research easier to review and maintain.
+
+This allows the module to support richer research work without forcing users into a heavier data-entry process.
+
 ## FAN im Workflow
 
 FAN-Zusammenhänge sind kein Nebenaspekt, sondern ein eigener Forschungskontext.
