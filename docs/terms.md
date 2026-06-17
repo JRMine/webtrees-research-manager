@@ -122,6 +122,32 @@ Bewertung kann kurz am These erfolgen oder später im Bericht ausführlicher aus
 
 ---
 
+## Research Context
+
+A derived person-level research view.
+
+Research Context is not a separate stored object. It is a way of presenting existing research data related to a person, such as theses, reports, conflicts, tasks and FAN Entries.
+
+## Extracted Theses
+
+A derived source-level view.
+
+Extracted Theses is not a separate stored object. It presents all theses derived from a source in one place.
+
+## FAN
+
+A dedicated context view in the person profile.
+
+FAN stands for Friends, Associates, Neighbors and represents the wider research network around a focus person.
+
+## FAN Entry
+
+A lightweight contextual research record used to capture relevant people around a focus person without requiring immediate creation of a full GEDCOM person.
+
+A FAN Entry may later be linked to an existing GEDCOM person.
+
+---
+
 ## Forschungsbericht
 
 Der Forschungsbericht ist die zusammenfassende, begründete Darstellung eines Forschungsstands.
