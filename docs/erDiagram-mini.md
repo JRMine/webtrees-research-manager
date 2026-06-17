@@ -1,4 +1,4 @@
-````md
+
 ```mermaid
 erDiagram
     PERSON ||--o{ FAN_ENTRY : focus_person
