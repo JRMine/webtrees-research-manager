@@ -170,6 +170,9 @@ Die Detaildokumentation befindet sich im Ordner [`docs`](docs/).
 - [`docs/concept.md`](docs/concept.md) – ausführlicher Konzeptentwurf
 - [`docs/terms.md`](docs/terms.md) – Begriffe und Arbeitsdefinitionen
 - [`docs/workflow.md`](docs/workflow.md) – geplanter Ablauf aus Nutzersicht
+- [`docs/methodology-alignment.md`](docs/methodology-alignment.md)
+- [`docs/data-model-minimal.md`](docs/data-model-minimal.md) – minimal data model for Research Context, Extracted Theses and FAN Entry
+
 
 ---
 
