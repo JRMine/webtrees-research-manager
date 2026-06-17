@@ -1,305 +1,434 @@
-# Begriffe und Arbeitsdefinitionen
+# Terms
 
-Dieses Dokument beschreibt die zentralen Begriffe des These-/Evidence-Moduls in ihrer aktuellen konzeptionellen Bedeutung.  
-Die Begriffe dienen zunächst der gemeinsamen fachlichen Verständigung. Sie sind noch kein technischer Datenentwurf und keine Festlegung für die spätere Implementierung.
+This document defines the core terms used by the Research Manager in their current conceptual meaning.
 
----
+These terms are intended to support a shared functional understanding of the module before implementation details are finalized.
 
-## These
-
-Ein These ist ein einzelner, strukturierter Forschungsbaustein.
-
-Ein These entsteht aus einer Quelle, einer Transkription oder einer anderen nachvollziehbaren Beobachtung im Forschungsprozess.  
-Er bezieht sich auf mindestens eine Person und hält eine Aussage fest, die genealogisch relevant ist und später zu einer Schlussfolgerung beitragen kann.
-
-Ein These ist nicht mit einem fertigen genealogischen Event identisch.  
-Er ist eine quellengebundene Aussage im Arbeitsprozess, noch vor der endgültigen redaktionellen Entscheidung.
-
-Ein These kann vollständig, unvollständig, unsicher, konkurrierend oder interpretationsbedürftig sein.
+The module is designed to describe a research layer between source material and final tree data.  
+For that reason, the terminology distinguishes carefully between source-based statements, analytical working objects, reasoned conclusions, and final genealogical Events.
 
 ---
 
-## Quelle
+## Thesis
 
-Eine Quelle ist der Herkunftskontext eines Thesen.
+A **Thesis** is a structured research statement.
 
-Quellen können klassische genealogische Quellen wie Kirchenbucheinträge, Standesamtsregister, Urkunden oder Akten sein.  
-Ebenso können Thesen aus Interviews, Notizen, Textdateien, Audio- oder Videoquellen oder aus bereits vorhandenen Transkriptionen entstehen.
+It is derived from a source, a transcription, or another traceable research observation and relates to at least one person.
 
-Für das Modul ist entscheidend, dass die Herkunft eines Thesen nachvollziehbar bleibt.  
-Der These soll deshalb immer in einem Quellenzusammenhang verstanden werden, auch wenn er später überwiegend in der Personenansicht bearbeitet wird.
+A Thesis is not identical to a final genealogical Event.  
+It is a source-based statement within the research process.
 
----
+A Thesis may be:
 
-## Transkription
+- incomplete
+- uncertain
+- in conflict with other Theses
+- preliminary
+- later revised or re-used
 
-Eine Transkription ist eine lesbare oder bearbeitete Textfassung einer Quelle oder eines Teils einer Quelle.
-
-Das These-/Evidence-Modul ist unabhängig von einem Transkriptionsmodul.  
-Transkriptionen sind jedoch ein naheliegender Ausgangspunkt für Thesen, da aus ihnen Aussagen extrahiert, verglichen und bewertet werden können.
-
-Eine Transkription ist damit nicht selbst der These, sondern ein möglicher Eingangsraum für die These-Erfassung.
+A Thesis is therefore the central research unit between the source and the final genealogical decision.
 
 ---
 
-## Personenbezug
+## Source
 
-Der Personenbezug beschreibt, auf welche Person oder Personen sich ein These bezieht.
+A **Source** is the origin context of a Thesis.
 
-Ein These soll nicht nur an seiner Quelle sichtbar sein, sondern auch im Kontext derjenigen Person, deren Daten oder Identität durch ihn betroffen sind.  
-Dies ist wichtig, weil genealogische Bewertung in der Praxis meist im Personenkontext erfolgt: Mehrere Aussagen zu Geburt, Tod, Wohnort, Verwandtschaft oder Identität werden dort gemeinsam betrachtet.
+A Source may be, for example:
 
-Ein These kann sich auf eine einzelne Person oder auf mehrere Personen beziehen.
+- a register entry
+- a church record
+- a census page
+- a deed
+- a probate file
+- an interview
+- an audio or video document
+- prior research material
+
+The Source provides the evidentiary basis from which one or more Theses may be derived.
+
+Research Manager should remain source-aware even when working in person context.
 
 ---
 
-## Zieltyp
+## Transcription
 
-Der Zieltyp ist eine optionale inhaltliche Einordnung eines Thesen.
+A **Transcription** is a readable textual rendering of a source.
 
-Er beschreibt, zu welcher Art genealogischer Aussage oder zu welchem späteren GEDCOM-Ereignis ein These voraussichtlich gehört, ohne den These bereits in dieses Event zu verwandeln.
+A Transcription may serve as an input context for Theses, but it is not required for the existence of a Thesis.
 
-Beispiele für Zieltypen sind etwa:
+The module is intentionally independent from a transcription system.  
+Theses must also be possible where no transcription exists.
+
+---
+
+## Person Link
+
+A **Person Link** is the relationship between a Thesis and one or more persons in the tree.
+
+A Thesis should be linkable to at least one person and may be linked to multiple persons where necessary.
+
+This allows the module to represent:
+
+- direct person-specific statements
+- relationship-related statements
+- shared source observations affecting multiple people
+
+The Person Link is important because genealogical evaluation is often performed in person context even when the source itself is broader.
+
+---
+
+## Target Type
+
+A **Target Type** is an optional classification attached to a Thesis.
+
+It indicates what kind of genealogical Event the Thesis may eventually support, for example:
 
 - `BIRT`
 - `DEAT`
 - `MARR`
 - `RESI`
 
-Der Zieltyp dient der Gruppierung, Vergleichbarkeit und späteren Überführung in ein eigentliches Event.  
-Er ist eine fachliche Orientierung, keine Gleichsetzung mit einem fertigen Stammbaum-Eintrag.
-
-Ein These kann auch ohne festgelegten Zieltyp bestehen, wenn die Aussage noch nicht eindeutig zugeordnet werden kann.
+A Target Type helps structure analysis and later event creation, but it does not turn the Thesis into a final Event.
 
 ---
 
 ## Event
 
-Ein Event ist ein eigentlicher genealogischer Eintrag im Stammbaum.
+An **Event** is the final genealogical result entered into the tree.
 
-Im Unterschied zum These ist ein Event bereits das Ergebnis einer Entscheidung.  
-Es repräsentiert also nicht mehr den offenen Forschungsstand, sondern die aktuell gewählte genealogische Aussage.
+An Event represents the currently accepted genealogical decision.
 
-Das Modul unterscheidet deshalb bewusst zwischen These und Event:
+Unlike a Thesis, an Event is not a provisional source-based statement within the research process.  
+It is the final tree-level expression of a conclusion.
 
-Ein These trägt zu einer Entscheidung bei.  
-Ein Event ist das Ergebnis dieser Entscheidung.
-
----
-
-## eventnahes Datenformat
-
-Ein These kann in seinem Aufbau an ein genealogisches Event angelehnt sein.
-
-Das bedeutet, dass Werte oder Felder in einer Form vorliegen können, die eine spätere Übernahme in ein Event erleichtert.  
-Trotz dieser Nähe bleibt der These ein eigenständiges Forschungsobjekt.
-
-Eventnähe bedeutet daher nicht Eventgleichheit.
-
-Der These darf zusätzliche Offenheit für Unsicherheit, konkurrierende Werte, Kommentare und Bewertungen behalten.
+Research Manager deliberately distinguishes between Thesis and Event so that reasoning remains visible.
 
 ---
 
-## Kommentar
+## Event-Adjacent Structure
 
-Ein Kommentar ist eine ergänzende textliche Anmerkung zu einem These.
+An **Event-Adjacent Structure** means that a Thesis may be modeled in a way that is structurally close to a future Event.
 
-Kommentare können Beobachtungen, editorische Hinweise, Lesarten, Unsicherheiten oder kurze Einschätzungen enthalten.  
-Sie gehören zum Arbeitskontext des Thesen, ersetzen aber keine umfassende genealogische Begründung.
+This makes later transition easier while still preserving the distinction between:
 
-Ein Kommentar ist daher nicht identisch mit einer Schlussfolgerung.
+- research statement
+- analytical reasoning
+- final tree data
+
+The purpose of this concept is to support traceability without collapsing research and result into the same object.
 
 ---
 
-## Bewertung
+## Comment
 
-Bewertung bezeichnet die fachliche Einordnung eines Thesen im Forschungsprozess.
+A **Comment** is a note attached to a Thesis, Report, or related research object.
 
-Sie kann sich zum Beispiel auf Plausibilität, Konflikte, Unsicherheiten oder den Verhältniswert zu anderen Thesen beziehen.  
-Bewertung ist mehr als bloße Beschreibung; sie macht sichtbar, wie ein These im Vergleich zu anderen Aussagen gelesen wird.
+Comments may contain:
 
-Bewertung kann kurz am These erfolgen oder später im Bericht ausführlicher ausgearbeitet werden.
+- clarification
+- reading uncertainty
+- context notes
+- comparison hints
+- process notes
+
+Comments are not themselves Theses.  
+They supplement the research workflow but do not replace structured research statements.
+
+---
+
+## Evaluation
+
+An **Evaluation** is an explicit assessment of a Thesis or a group of Theses.
+
+Evaluation may include:
+
+- plausibility judgments
+- conflict notes
+- comparison results
+- working assumptions
+- reasons for preferring one Thesis over another
+
+Evaluation is part of the analytical process and should remain visible in Reports and related views.
 
 ---
 
 ## Research Context
 
-A derived person-level research view.
+**Research Context** is a derived person-level research view.
 
-Research Context is not a separate stored object. It is a way of presenting existing research data related to a person, such as theses, reports, conflicts, tasks and FAN Entries.
+It is not a separate stored object.
+
+Research Context presents existing research data related to a person in a more analytical form, such as:
+
+- linked Theses
+- relevant Reports
+- unresolved conflicts
+- related Research Tasks
+- linked FAN Entries
+- chronologically relevant research observations derived from existing objects
+
+Its purpose is to make person-centered research easier to review without introducing another note object.
+
+---
 
 ## Extracted Theses
 
-A derived source-level view.
+**Extracted Theses** is a derived source-level view.
 
-Extracted Theses is not a separate stored object. It presents all theses derived from a source in one place.
+It is not a separate stored object.
+
+Extracted Theses presents all Theses derived from a given Source in one place.
+
+Its purpose is to strengthen source-centered research work and reduce the risk that research becomes purely person-centered.
+
+---
 
 ## FAN
 
-A dedicated context view in the person profile.
+**FAN** stands for:
 
-FAN stands for Friends, Associates, Neighbors and represents the wider research network around a focus person.
+- Friends
+- Associates
+- Neighbors
+
+Within the Research Manager, FAN refers to the wider contextual network around a focus person.
+
+This concept is important because genealogical conclusions often depend not only on direct person data, but also on recurring surrounding people and social context.
+
+FAN should be visible as a dedicated person-level context view.
+
+---
 
 ## FAN Entry
 
-A lightweight contextual research record used to capture relevant people around a focus person without requiring immediate creation of a full GEDCOM person.
+A **FAN Entry** is a lightweight contextual research record.
 
-A FAN Entry may later be linked to an existing GEDCOM person.
+It is used to capture relevant people in the research environment of a focus person without requiring immediate creation of a full GEDCOM person.
 
----
+A FAN Entry is intentionally lighter than a normal tree person.  
+It may later be:
 
-## Forschungsbericht
+- linked to an existing GEDCOM person
+- kept as a contextual entry only
+- converted into a full tree person if needed
 
-Der Forschungsbericht ist die zusammenfassende, begründete Darstellung eines Forschungsstands.
+Typical FAN situations include:
 
-Er führt mehrere Thesen zusammen, macht deren Verhältnis sichtbar und dokumentiert, welche Auswahl oder Entscheidung aus ihnen abgeleitet wurde.  
-Ein Forschungsbericht ist daher nicht nur eine Exportfunktion, sondern der Ort der genealogischen Argumentation.
-
-Er kann enthalten:
-
-- die berücksichtigten Thesen
-- deren Kommentare
-- ergänzende Begründungen
-- die gewählte Schlussfolgerung
-- den Bezug zum daraus erzeugten Event
+- neighbors in the same locality
+- witnesses in legal or church records
+- repeated associates across multiple sources
+- possible but not yet proven relatives
+- unidentified or only partially identified context persons
 
 ---
 
-## Forschungsbericht-Builder
+## Research Report
 
-Der Forschungsbericht-Builder ist die Arbeitsumgebung, in der Thesen zusammengeführt, verglichen und ausgewertet werden.
+A **Research Report** documents the current analytical state of a research question.
 
-Hier sollen Thesen einer Person und optional eines bestimmten Zieltyps gemeinsam sichtbar werden.  
-Dort kann entschieden werden, welche Thesen für die aktuelle Schlussfolgerung herangezogen werden, welche Werte übernommen werden und wie die genealogische Begründung formuliert wird.
+It brings together multiple Theses, makes their evaluation visible, and records the reasoning that leads to the current Conclusion.
 
-Der Builder ist damit das Zentrum des evidenzbasierten Arbeitsprozesses.
+A Research Report is more than a technical output.  
+It is a documented research argument.
 
----
-
-## Schlussfolgerung
-
-Die Schlussfolgerung ist die inhaltliche Entscheidung, die aus mehreren Thesen abgeleitet wird.
-
-Sie ist enger und fokussierter als der gesamte Bericht.  
-Während der Bericht den Argumentationsraum dokumentiert, benennt die Schlussfolgerung die daraus gezogene genealogische Aussage.
-
-Eine Schlussfolgerung kann später in ein Event überführt werden.
----
-
-## Forschungsfall
-
-Ein Forschungsfall ist ein übergeordneter Container für eine genealogische Fragestellung.
-
-Er dient dazu, Personen, Quellen, Transkriptionen, Thesen, Berichte, Events und Forschungsaufgaben in einem gemeinsamen analytischen Zusammenhang zu organisieren.
-
-Der Forschungsfall ist nicht selbst der These und nicht selbst der Bericht.  
-Er ist die ordnende Klammer eines Forschungsvorgangs.
-
-Ein Forschungsfall eignet sich besonders für personenübergreifende, quellenübergreifende oder mehrdeutige genealogische Fragestellungen.
+It should remain revisable if new evidence appears.
 
 ---
 
-## Forschungsfall-Notiz
+## Research Report Builder
 
-Eine Forschungsfall-Notiz ist eine freie Notiz auf Ebene des Forschungsfalls.
+The **Research Report Builder** is the working environment in which relevant Theses are brought together, compared, evaluated, and turned into a reasoned report.
 
-Sie dient zur Dokumentation von Fragestellungen, Hypothesen, Zwischenständen, methodischen Hinweisen oder offenen Punkten, die nicht auf These-Ebene liegen.
+This builder should support tasks such as:
 
-Sie ersetzt weder Thesen noch Berichte, sondern ergänzt diese um einen allgemeinen Arbeitsraum.
+- comparing competing Theses
+- reviewing notes and evaluations
+- selecting currently preferred interpretations
+- documenting unresolved conflicts
+- preparing a Conclusion
+- supporting later Event creation
+
+The builder is not a one-time export mechanism.  
+It is an active analytical workspace.
 
 ---
 
-## Forschungsaufgabe
+## Conclusion
 
-Eine Forschungsaufgabe ist ein konkreter Arbeitsschritt oder ein To-do innerhalb des Forschungsprozesses.
+A **Conclusion** is the current reasoned outcome of the research process.
 
-Im Unterschied zum Forschungsfall ist die Forschungsaufgabe nicht die analytische Klammer einer Fragestellung, sondern eine operative Tätigkeit, zum Beispiel das Prüfen einer Quelle oder das Einholen einer zweiten Lesung.
+It is based on available Theses and their documented evaluation.
 
-Forschungsaufgaben können einem Forschungsfall zugeordnet werden, ohne dass dafür ein eigenes System von Unteraufgaben erforderlich ist.
+A Conclusion is not necessarily final or absolute.  
+It reflects the best current genealogical judgment based on the evidence presently available.
+
+A Conclusion may later change if new Theses or new context appear.
+
+---
+
+## Research Case
+
+A **Research Case** is a higher-level analytical container for a genealogical question.
+
+It provides the broader working frame in which related people, sources, Theses, reports, tasks, and contextual entries can be organized together.
+
+A Research Case is especially useful when a problem spans:
+
+- multiple sources
+- multiple persons
+- multiple possible interpretations
+- broader social or family context
+
+A Research Case is not the evidence unit itself.  
+That role remains with the Thesis.
+
+---
+
+## Research Case Note
+
+A **Research Case Note** is a free note attached to the Research Case.
+
+It is intended for case-level working material such as:
+
+- the research question
+- intermediate thoughts
+- open problems
+- methodological notes
+- next steps
+- general context that does not belong to a single Thesis
+
+A Research Case Note does not replace a Thesis or a Research Report.  
+It supports the broader working context.
+
+---
+
+## Research Task
+
+A **Research Task** is a concrete operational work step.
+
+Examples include:
+
+- review a source again
+- complete a transcription
+- compare conflicting statements
+- obtain another source
+- ask for outside reading help
+
+A Research Task is not the same as a Research Case.
+
+- A **Research Case** is the analytical frame
+- A **Research Task** is a practical step within or around that frame
+
+Tasks should be linkable in flexible ways so that they can support real research workflows.
 
 ---
 
 ## Research Manager
 
-Research Manager ist der vorläufige Name des geplanten Moduls.
+**Research Manager** is the current working title of the planned module.
 
-Der Name bezeichnet die übergreifende Funktion des Moduls als Arbeitsumgebung für evidenzbasierte genealogische Forschung.  
-Der Research Manager verbindet Forschungsfälle, Thesen, Berichte, Forschungsaufgaben und genealogische Schlussfolgerungen in einem gemeinsamen System.
+The name reflects the module’s intended role as an organizational and analytical workspace for evidence-based genealogical research inside webtrees.
 
-
----
-
-## abgeschlossen
-
-Ein These gilt als abgeschlossen, wenn er im aktuellen Forschungsstand bearbeitet und in einem Bericht berücksichtigt wurde und daraus gegebenenfalls ein Event erzeugt wurde.
-
-Abgeschlossen bedeutet nicht gelöscht, ungültig oder bedeutungslos.  
-Der These bleibt vollständig erhalten und weiterhin nachvollziehbar.
-
-Abgeschlossen bedeutet lediglich, dass der These nicht mehr zwingend als offener Arbeitsfall in der normalen Personenansicht sichtbar sein muss.
-
-Ob Thesen nach Abschluss automatisch oder manuell aus der Standardansicht ausgeblendet werden, ist eine Frage des späteren Workflows.
+The module is not meant to replace the tree.  
+It is meant to support the reasoning process that leads to better tree data.
 
 ---
 
-## offen
+## Completed
 
-Ein offener These ist ein These, der noch aktiv im Forschungsprozess bearbeitet wird.
+A **Completed** Thesis is a Thesis that has already been used in a Research Report or in support of a current Conclusion.
 
-Offen kann bedeuten, dass der These noch nicht bewertet wurde, dass noch kein Bericht zu ihm vorliegt oder dass seine Beziehung zu anderen Thesen noch nicht geklärt ist.
+Completed does not mean deleted or invalid.  
+It only means that the Thesis is no longer part of the currently open default working set.
 
-Offene Thesen sollen in der normalen Arbeitsansicht besonders sichtbar sein.
-
----
-
-## ausgeblendet
-
-Ausgeblendet bezeichnet einen Sichtbarkeitszustand, nicht den Verlust von Information.
-
-Ein ausgeblendeter These bleibt vollständig erhalten, ist aber in der normalen Personenansicht nicht mehr standardmäßig sichtbar.  
-Dies dient der Übersichtlichkeit, wenn Thesen bereits in einen Bericht eingeflossen sind oder der aktuelle Forschungsstand dokumentiert wurde.
-
-Ausgeblendete Thesen sollen im Builder oder über geeignete Filter wieder sichtbar gemacht werden können.
+Completed Theses should remain fully available for review and later reuse.
 
 ---
 
-## reaktiviert
+## Open
 
-Ein These ist reaktiviert, wenn ein bereits berücksichtigter oder ausgeblendeter These erneut in den aktiven Forschungsprozess zurückgeholt wird.
+An **Open** Thesis is a Thesis that is still part of the active research process.
 
-Dies kann notwendig werden, wenn neue Thesen hinzukommen, neue Quellen auftauchen oder ein bestehender Bericht überarbeitet werden soll.
+It may still need:
 
-Reaktivierung bedeutet daher keine Wiederherstellung verlorener Daten, sondern die erneute aktive Berücksichtigung eines weiterhin vorhandenen Thesen.
+- comparison
+- evaluation
+- contextualization
+- inclusion in a report
+- revision
 
----
-
-## archiviert
-
-Der Begriff „archiviert“ wird im Konzept bewusst nur zurückhaltend verwendet.
-
-Gemeint ist nicht das Weglegen im Sinne eines abgeschlossenen Ablageortes, sondern eher der Übergang aus der offenen Standardansicht in einen dokumentierten, aber weiterhin verfügbaren Zustand.
-
-Im fachlichen Sinne ist daher meist präziser von abgeschlossen, berücksichtigt oder ausgeblendet zu sprechen.
+Open Theses should remain visible in normal working views.
 
 ---
 
-## Forschungsstand
+## Hidden
 
-Der Forschungsstand ist der aktuell dokumentierte Zustand einer genealogischen Bewertung.
+A **Hidden** Thesis is a Thesis that is no longer shown in the default active view, typically because it has already been processed or used.
 
-Er umfasst die vorhandenen Thesen, deren Sichtbarkeit, die dazugehörigen Kommentare, mögliche Berichte und die daraus aktuell abgeleiteten Events.
+Hidden does not mean removed.
 
-Der Forschungsstand ist nicht endgültig.  
-Er kann bei neuer Evidenz jederzeit überprüft, erweitert und überarbeitet werden.
+The purpose of hiding is to reduce working noise while preserving traceability.
+
+A Hidden Thesis should still remain accessible in the Report Builder and in other deeper research views.
 
 ---
 
-## Leitgedanke
+## Reactivated
 
-Das Modul versteht Thesen als eigenständige Forschungseinheiten zwischen Quelle und Event.
+A **Reactivated** Thesis is a previously completed or hidden Thesis that becomes relevant again.
 
-Ein These ist keine bloße Notiz.  
-Ein These ist keine bloße Quellenverknüpfung.  
-Ein These ist auch noch kein fertiges Event.
+This may happen when:
 
-Ein These ist ein strukturierter, personenbezogener und quellengebundener Baustein genealogischer Argumentation.
+- new evidence appears
+- a prior conclusion is questioned
+- a report is reopened
+- a conflict needs to be reconsidered
+
+Reactivation is an important part of the module because genealogical research must remain revisable.
+
+---
+
+## Archived
+
+An **Archived** object is a research object that is intentionally retained for reference but is no longer part of active working use.
+
+Archiving should be used carefully and should not replace ordinary completion or hiding.
+
+The distinction matters because many research objects may still become relevant again later.
+
+---
+
+## Research State
+
+The **Research State** is the current documented status of a research question.
+
+It is expressed through the combined presence of:
+
+- open and completed Theses
+- Reports
+- Conclusions
+- tasks
+- contextual FAN work
+- linked Events, where applicable
+
+The Research State is not a single field.  
+It is the current analytical picture produced by the module.
+
+---
+
+## Guiding Idea
+
+The guiding idea of Research Manager is:
+
+A Thesis is not merely a note, not merely a source link, and not yet a final Event.
+
+It is an independent, structured research unit between the source and the genealogical Conclusion.
+
+From this follows the overall design direction:
+
+- preserve the difference between evidence and result
+- support explicit comparison and evaluation
+- document reasoning before tree entry
+- keep research revisable
+- improve methodology without creating unnecessary complexity
