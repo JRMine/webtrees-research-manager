@@ -350,6 +350,109 @@ Das Modul soll deshalb:
 
 ---
 
+## Usability-Prinzipien
+
+Das Modul soll methodisch stärker sein als klassische Event-Erfassung, dabei aber bewusst einfach benutzbar bleiben.
+
+Deshalb gilt für das Konzept:
+
+- so wenige neue Objekte wie möglich
+- so viele abgeleitete Ansichten wie sinnvoll
+- keine unnötige Verdoppelung bestehender Inhalte
+- keine Pflicht, jede Kontextperson sofort als GEDCOM-Person anzulegen
+- methodische Tiefe soll schrittweise zugänglich sein, nicht alles auf einmal verlangen
+
+Research Manager soll die Arbeitsweise verbessern, ohne für Laien wie ein zweites kompliziertes System neben webtrees zu wirken.
+
+---
+
+## Abgeleitete Ansichten statt zusätzlicher Notizobjekte
+
+Bestimmte methodische Anforderungen sollen nicht über immer neue Datentypen gelöst werden, sondern über zusätzliche Sichten auf bestehende Objekte.
+
+### Personenansicht: Research Context
+
+Im Personenprofil soll ein eigener Tab **Research Context** eine forschungsbezogene Sicht auf vorhandene Daten bieten.
+
+Diese Sicht ist kein eigenes Objekt, sondern aggregiert bestehende Inhalte wie:
+
+- Thesen
+- Berichte
+- Konflikte
+- Aufgaben
+- chronologisch relevante Forschungshinweise
+
+Damit kann eine personenzentrierte Forschungssicht entstehen, ohne dass dafür ein eigener Notiztyp gepflegt werden muss.
+
+### Quellenansicht: Extracted Theses
+
+Im Quellenkontext soll ein eigener Tab **Extracted Theses** alle aus einer Quelle gewonnenen Thesen bündeln.
+
+Dadurch wird die Quelle als analytischer Ausgangspunkt sichtbarer und die Forschung weniger rein personenzentriert.
+
+---
+## FAN als eigener Forschungskontext
+
+Ein zentrales methodisches Defizit klassischer genealogischer Software ist die geringe Sichtbarkeit von FAN-Zusammenhängen.
+
+Research Manager soll deshalb im Personenprofil einen eigenen Tab **FAN** anbieten.
+
+Der Begriff FAN steht für:
+
+- Friends
+- Associates
+- Neighbors
+
+Die ausgeschriebene Bedeutung kann über einen Hilfetext oder Hover-Text erklärt werden.
+
+Der FAN-Tab soll die Forschung nicht in ein zweites Personensystem überführen, sondern einen leicht zugänglichen Kontextbereich schaffen, in dem relevante Umfeldpersonen erfasst, angezeigt und später weiterverknüpft werden können.
+
+---
+
+## FAN Entry
+
+Ein FAN Entry ist eine reduzierte Forschungseinheit zur Erfassung kontextrelevanter Personen.
+
+Geplante Felder:
+
+- Vorname
+- Nachname
+- Typ
+- Fokusperson
+- Quelle
+- Forschungsfall
+- Notiz
+- Ort
+- Zeitraum
+- GEDCOM-Verlinkung
+
+### Pflicht und Verknüpfung
+
+Pflichtfeld ist mindestens die **Fokusperson**.
+
+Der **Forschungsfall** soll als zentrale fachliche Verknüpfung vorgesehen werden und in vielen UI-Kontexten automatisch vorbelegt oder stark empfohlen werden.
+
+Die **Quelle** bleibt optional, soll aber überall dort leicht verknüpfbar sein, wo ein FAN-Eintrag direkt aus einer konkreten Quelle entsteht.
+
+### Ziel
+
+FAN Entries sollen schnell und unkompliziert erfasst werden können, vorzugsweise tabellarisch, damit auch größere Kontexte ohne hohen Modellierungsaufwand dokumentierbar bleiben.
+
+---
+
+## Geplante Aktionen für FAN Entries
+
+FAN Entries sollen langfristig mindestens folgende Aktionen unterstützen:
+
+- als Associate hinzufügen
+- mit vorhandener Person verknüpfen
+- zur Person im Stammbaum machen
+- im Forschungsfall anzeigen
+
+Damit bleibt der Einstieg niedrigschwellig, während spätere Vertiefung möglich bleibt.
+
+---
+
 ## Vorläufiges Fazit
 
 Das geplante Reserach Manager soll webtrees um eine evidenzbasierte Forschungsebene erweitern.
