@@ -103,14 +103,14 @@ The first release should focus on a small but coherent workflow.
 - document methodological alignment with evidence-based genealogy principles
 
 ### Milestones
-- [ ] `README.md` finalized in English
-- [ ] `docs/concept.md` finalized in English
-- [ ] `docs/terms.md` finalized in English
-- [ ] `docs/workflow.md` finalized in English
-- [ ] `docs/data-model-minimal.md` finalized
-- [ ] `docs/methodology-alignment.md` finalized
-- [ ] `ROADMAP.md` added
-- [ ] Mermaid diagrams added for workflow and minimal data model
+- [x] `README.md` finalized in English
+- [x] `docs/concept.md` finalized in English
+- [x] `docs/terms.md` finalized in English
+- [x] `docs/workflow.md` finalized in English
+- [x] `docs/data-model-minimal.md` finalized
+- [x] `docs/methodology-alignment.md` finalized
+- [x] `ROADMAP.md` added
+- [x] Mermaid diagrams added for workflow and minimal data model
 
 ### Exit Criteria
 - core terminology is stable
