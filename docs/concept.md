@@ -1,111 +1,114 @@
-# Konzeptentwurf: Research Manager für webtrees
+# Concept Draft: Research Manager for webtrees
 
-## Ziel des Moduls
+## Purpose of the Module
 
-Dieses Projekt beschreibt ein eigenständiges webtrees-Modul für evidenzbasiertes genealogisches Arbeiten.  
-Das Modul soll es ermöglichen, Aussagen aus Quellen strukturiert als Thesen zu erfassen, zu vergleichen, zu bewerten und in begründete genealogische Schlussfolgerungen zu überführen.
+This project describes a standalone webtrees module for evidence-based genealogical research.
 
-Das Modul ist bewusst unabhängig von einem Transkriptionsmodul gedacht. Transkriptionen können eine wichtige Eingangsquelle für Thesen sein, sind aber nicht Voraussetzung. Thesen können grundsätzlich aus jeder Quelle entstehen, auch ohne vorhandene Transkription.
+The module is intended to make it possible to capture source-based statements as **Theses**, compare them, evaluate them, and turn them into reasoned genealogical Conclusions.
 
-Ziel ist es, webtrees um eine Arbeitsebene zu erweitern, die zwischen Quelle und fertigem GEDCOM-Ereignis liegt. Dadurch soll der Forschungsprozess selbst sichtbarer, nachvollziehbarer und besser dokumentierbar werden.
+The module is deliberately independent from any transcription module. Transcriptions may be an important input for Theses, but they are not required. A Thesis should be able to arise from any traceable source, even where no transcription exists.
 
----
-
-## Ausgangspunkt
-
-In der genealogischen Praxis entstehen aus Quellen zunächst nicht sofort fertige Fakten, sondern zunächst Aussagen, Lesarten, Deutungen und Vergleichswerte.  
-Mehrere solcher Aussagen müssen häufig gemeinsam bewertet werden, bevor daraus ein Ereignis wie Geburt, Tod, Heirat oder Wohnort im Stammbaum eingetragen werden kann.
-
-Das Modul soll genau diesen Zwischenschritt unterstützen:
-
-- Aussagen aus Quellen erfassen
-- Aussagen einer Person zuordnen
-- Aussagen nach möglichem Ereignistyp gruppieren
-- widersprüchliche oder konkurrierende Angaben vergleichen
-- eine begründete Auswahl treffen
-- daraus ein eigentliches Event in webtrees ableiten
-
-Damit versteht sich das Modul nicht als bloße Notizsammlung, sondern als Arbeitsumgebung für evidenzbasiertes genealogisches Forschen.
+The overall goal is to add a working layer to webtrees that sits between the source and the final GEDCOM event. This should make the research process itself more visible, more transparent, and better documented.
 
 ---
 
-## Grundidee
+## Starting Point
 
-Ein These ist ein einzelner Forschungsbaustein.
+In genealogical practice, sources do not immediately produce final facts. They first produce statements, readings, interpretations, possible values, and competing possibilities.
 
-Ein These entsteht aus einer Quelle oder Transkription, bezieht sich auf mindestens eine Person und kann optional einem Zieltyp zugeordnet werden, zum Beispiel einem späteren GEDCOM-Ereignis wie `BIRT`, `DEAT`, `MARR` oder `RESI`.
+In many cases, several such statements must be evaluated together before a genealogical event such as a birth, death, marriage, or residence should be entered into the tree.
 
-Ein These ist jedoch nicht mit dem eigentlichen Event identisch.  
-Er ist eine Vorstufe genealogischer Interpretation: quellengebunden, personenbezogen, eventnah strukturiert, aber noch nicht die abschließende redaktionelle Entscheidung.
+The module is intended to support exactly this intermediate step:
 
-Dadurch bleibt Raum für:
+- capture statements from sources
+- assign statements to one or more persons
+- group statements by possible event type
+- compare conflicting or competing values
+- make a reasoned selection
+- derive a final event in webtrees from that selection
 
-- unvollständige Angaben
-- konkurrierende Werte
-- unsichere Lesarten
-- Kommentare und Bewertungen
-- späteren Vergleich mehrerer Thesen
-
----
-
-## Abgrenzung zum eigentlichen GEDCOM-Event
-
-Das Modul soll Thesen nicht einfach als zweite Kopie normaler Ereignisse behandeln.
-
-Stattdessen gilt:
-
-Ein These kann in seinem Aufbau an ein Event angelehnt sein, damit der spätere Übergang einfach bleibt.  
-Zusätzlich besitzt er aber eine eigene Bedeutungsebene als Forschungsobjekt.
-
-Wesentlich ist daher die Unterscheidung:
-
-- Ein **Event** ist eine bereits getroffene genealogische Entscheidung.
-- Ein **These** ist eine quellenbasierte Aussage, die zu einer solchen Entscheidung beitragen kann.
-
-Um diese Nähe und zugleich diese Trennung sichtbar zu machen, soll ein These ein eventnahes Datenformat besitzen und zusätzlich einen optionalen Zieltyp enthalten.  
-Dieser Zieltyp beschreibt, zu welcher Art von Event ein These wahrscheinlich gehört, ohne ihn bereits in dieses Event zu verwandeln.
-
-Beispiele:
-
-- ein These mit Zieltyp `BIRT`
-- ein These mit Zieltyp `DEAT`
-- ein These ohne festgelegten Zieltyp
-- mehrere Thesen mit demselben Zieltyp, aber unterschiedlichen Werten
+For this reason, the module should not be treated as a simple note system. It is intended to be a working environment for evidence-based genealogical analysis.
 
 ---
 
-## Zentrale Anforderungen
+## Core Idea
 
-Das Modul soll Thesen aus verschiedenen Perspektiven zugänglich machen.
+A **Thesis** is a single research unit.
 
-### 1. Einstieg über die Quelle
-Ein These soll in der Quellenansicht oder aus einer Transkription heraus erzeugt werden können.  
-Dadurch bleibt die Herkunft des Thesen nachvollziehbar.
+A Thesis arises from a source or transcription, relates to at least one person, and may optionally be assigned a target type, such as a later GEDCOM event like `BIRT`, `DEAT`, `MARR`, or `RESI`.
 
-### 2. Einstieg über die Person
-Ein These soll ebenso in der Personenansicht sichtbar und anlegbar sein.  
-Gerade dort müssen mehrere Thesen gemeinsam bewertet werden können, weil genealogische Schlussfolgerungen in der Regel im Personenkontext getroffen werden.
+A Thesis is not identical to the final event itself.  
+It is a preliminary unit of genealogical interpretation: source-based, person-linked, structurally close to an event, but not yet the final editorial decision.
 
-### 3. Sichtbarkeit am passenden Ereigniskontext
-Thesen sollen in der Individuenansicht möglichst dort sichtbar sein, wo später das zugehörige Event steht oder stehen würde.  
-Dadurch wird der Zusammenhang zwischen Forschungsstand und fertigem Stammbaum-Eintrag unmittelbar erkennbar.
+This leaves room for:
+
+- incomplete information
+- competing values
+- uncertain readings
+- comments and evaluations
+- later comparison across multiple Theses
 
 ---
 
-## Der These als Kernobjekt
+## Distinction from the GEDCOM Event
 
-Der These ist das zentrale Objekt des Moduls.
+The module should not treat Theses as a second copy of ordinary genealogical events.
 
-Konzeptionell besitzt er folgende Eigenschaften:
+Instead, the following distinction applies:
 
-- Er ist an eine Quelle oder Transkription gebunden.
-- Er ist mindestens einer Person zugeordnet.
-- Er kann optional einem Zieltyp zugeordnet werden.
-- Er enthält den eigentlichen inhaltlichen Wert oder die zu erfassende Aussage.
-- Er kann Kommentare, Bewertungshinweise und Bearbeitungsinformationen enthalten.
-- Er bleibt auch dann erhalten, wenn aus ihm später ein Event erzeugt wird.
+- An **Event** is an already accepted genealogical decision.
+- A **Thesis** is a source-based statement that may contribute to such a decision.
 
-Der These ist damit weder reine Quelle noch fertiges Event, sondern die verbindende Forschungseinheit zwischen beiden.
+A Thesis may be structurally close to an Event so that later conversion remains simple.  
+At the same time, it has its own meaning as a research object.
+
+To make both the similarity and the distinction visible, a Thesis should use an event-adjacent structure and may include an optional target type.  
+The target type describes what kind of event the Thesis is likely to support without turning it into that event.
+
+Examples:
+
+- a Thesis with target type `BIRT`
+- a Thesis with target type `DEAT`
+- a Thesis without a defined target type
+- several Theses with the same target type but different values
+
+---
+
+## Core Requirements
+
+The module should make Theses accessible from different perspectives.
+
+### 1. Entry from the Source
+A Thesis should be creatable from the source view or from a transcription.
+
+This keeps the origin of the Thesis traceable.
+
+### 2. Entry from the Person
+A Thesis should also be visible and creatable from the person profile.
+
+In practice, genealogical conclusions are usually made in person context, so multiple Theses must be reviewable there together.
+
+### 3. Visibility in the Relevant Event Context
+Within the person profile, Theses should ideally appear close to the place where the corresponding final event either exists or may later be created.
+
+This makes the relationship between current research and final tree data more immediately visible.
+
+---
+
+## The Thesis as the Core Object
+
+The Thesis is the central object of the module.
+
+Conceptually, it has the following characteristics:
+
+- it is linked to a source or transcription
+- it is linked to at least one person
+- it may optionally have a target type
+- it contains the actual statement, value, or observation to be recorded
+- it may include notes, evaluation hints, and processing information
+- it remains available even after an Event is later created from it
+
+A Thesis is therefore neither just a source reference nor a finished event, but the connecting research unit between the two.
 
 ---
 
@@ -121,358 +124,379 @@ In particular:
 - **Extracted Theses** should be a derived source-level view
 - **FAN Entry** should be the only new lightweight context object introduced for this area
 
-This keeps the object model small while still allowing better visibility of context, analysis and source-derived research data.
+This keeps the object model small while still allowing better visibility of context, analysis, and source-derived research data.
 
 ---
 
-## Forschungsbericht-Builder
+## Research Report Builder
 
-Das Herzstück des Moduls ist eine Arbeitsansicht, die vorläufig als **Forschungsbericht-Builder** bezeichnet wird.
+The central working area of the module is a dedicated view provisionally called the **Research Report Builder**.
 
-In dieser Ansicht sollen zu einer Person und optional zu einem bestimmten Zieltyp alle relevanten Thesen zusammengeführt werden.  
-Dort können sie verglichen, geprüft und für eine Schlussfolgerung ausgewählt werden.
+In this view, all relevant Theses for a person — and optionally for a specific target type — should be brought together for comparison, review, and selection.
 
-Der Forschungsbericht-Builder soll insbesondere ermöglichen:
+The Research Report Builder should in particular allow users to:
 
-- alle Thesen zu einer Person anzuzeigen
-- Thesen nach Zieltyp zu gruppieren
-- konkurrierende Werte nebeneinander zu sehen
-- Kommentare und Bewertungen einzubeziehen
-- eine begründete Auswahl zu treffen
-- aus den ausgewählten Thesen das eigentliche Event zu erzeugen
-- aus den Thesen, Kommentaren und Begründungen einen Forschungsbericht zu erzeugen
+- display all Theses linked to a person
+- group Theses by target type
+- compare competing values side by side
+- include notes and evaluations
+- make a reasoned selection
+- create a final Event from selected Theses
+- generate a Research Report from Theses, comments, and reasoning
 
-Der Bericht ist dabei nicht bloß eine technische Ausgabe, sondern die dokumentierte genealogische Argumentation.
+The report is not merely a technical output. It is the documented genealogical argument.
 
 ---
 
-## Verhältnis von These, Bericht und Event
+## Relationship Between Thesis, Report, and Event
 
-Das Modul unterscheidet drei Ebenen:
+The module distinguishes three levels:
 
-### These
-Der These ist die einzelne Aussage oder Beobachtung aus einer Quelle.
+### Thesis
+The Thesis is a single statement or observation derived from a source.
 
-### Bericht / Schlussfolgerung
-Der Bericht fasst mehrere Thesen zusammen, dokumentiert ihre Bewertung und formuliert die genealogische Begründung.
+### Report / Conclusion
+The Report brings multiple Theses together, documents their evaluation, and formulates the genealogical reasoning that leads to a current Conclusion.
 
 ### Event
-Das Event ist das Ergebnis einer Entscheidung und wird in den eigentlichen Stammbaum übernommen.
+The Event is the result of a decision and is entered into the actual tree.
 
-Diese drei Ebenen sollen bewusst getrennt bleiben.  
-Dadurch wird nachvollziehbar, auf welcher Grundlage ein Event entstanden ist und welche Alternativen oder Unsicherheiten zuvor bestanden haben.
-
----
-
-## Umgang mit abgeschlossenen Thesen
-
-Ein wichtiger Teil des Konzepts ist der Umgang mit Thesen, die bereits bearbeitet wurden.
-
-Wenn ein Forschungsbericht erstellt und daraus ein Event erzeugt wurde, gelten die verwendeten Thesen grundsätzlich als abgeschlossen.  
-Abgeschlossen bedeutet jedoch nicht, dass sie gelöscht oder inhaltlich entwertet werden.
-
-Stattdessen gilt:
-
-- Der These bleibt vollständig erhalten.
-- Der These bleibt Teil der dokumentierten Argumentation.
-- Der These kann später erneut herangezogen werden.
-- Der These muss aber nicht dauerhaft in der normalen Personenansicht als offener Arbeitsfall sichtbar bleiben.
-
-Deshalb soll das Modul ermöglichen, abgeschlossene Thesen in der Standardansicht auszublenden.  
-Ob dies automatisch geschieht oder vom Anwender per Checkbox entschieden wird, soll bewusst flexibel gehalten werden.
-
-Dadurch entsteht ein sinnvoller Unterschied zwischen:
-
-- offenen Thesen im aktiven Forschungsprozess
-- bereits berücksichtigten Thesen
-- erneut reaktivierten Thesen, wenn neue Evidenz hinzukommt
+These three levels should remain clearly separated.  
+This makes it possible to understand on what basis an Event was created and which alternatives or uncertainties existed beforehand.
 
 ---
 
-## Offenheit für spätere Überarbeitung
+## Handling Completed Theses
 
-Genealogische Forschung ist grundsätzlich revisierbar.  
-Darum darf ein Forschungsbericht nicht als endgültiger Endzustand verstanden werden.
+An important part of the concept is the handling of Theses that have already been processed.
 
-Wenn später neue Thesen hinzukommen, soll der bestehende Bericht erneut geöffnet, erweitert und überarbeitet werden können.  
-Auch bereits ausgeblendete Thesen sollen im Builder wieder einblendbar sein, damit frühere Entscheidungen überprüft oder neu gewichtet werden können.
+When a Research Report has been created and an Event has been derived from it, the Theses used in that reasoning are generally considered completed.  
+Completed does not mean deleted or invalidated.
 
-Der Builder ist damit kein einmaliger Export, sondern eine fortschreibbare Arbeitsumgebung für den aktuellen Forschungsstand.
+Instead:
 
----
+- the Thesis remains fully preserved
+- the Thesis remains part of the documented reasoning
+- the Thesis may later be reused
+- the Thesis does not need to remain permanently visible as an active research item in the standard person view
 
-## Beziehung zu Transkription und Quelle
+For this reason, the module should allow completed Theses to be hidden from the default working view.  
+Whether this happens automatically or is controlled by the user should remain flexible.
 
-Das Modul ist unabhängig, aber anschlussfähig.
+This creates a meaningful distinction between:
 
-Es soll insbesondere mit einem Transkriptionsmodul zusammenarbeiten können, ohne von diesem abhängig zu sein.  
-Transkriptionen können eine wichtige Grundlage für Thesen sein, genau wie andere Quellenarten.
-
-Damit wird zugleich berücksichtigt, dass genealogische Quellen nicht nur aus Bilddateien bestehen, sondern zum Beispiel auch aus:
-
-- Textquellen
-- Audioquellen
-- Videoquellen
-- Interviews
-- Notizen
-- bereits vorhandenen Forschungsergebnissen
-
-Das Modul soll daher nicht auf eine einzelne Quellengattung beschränkt sein.
+- open Theses in active research
+- already used Theses
+- reactivated Theses when new evidence appears
 
 ---
 
-## Forschungsfall als übergeordneter Container
+## Openness to Revision
 
-Das Modul soll nicht nur einzelne Thesen verwalten, sondern auch komplexere genealogische Fragestellungen strukturiert zusammenhalten können.
+Genealogical research is inherently revisable.
 
-Dafür wird ein eigenständiger **Forschungsfall** als übergeordneter Container vorgesehen.  
-Ein Forschungsfall beschreibt eine genealogische Fragestellung oder ein zusammenhängendes Untersuchungsfeld.
+A Research Report should therefore not be treated as a final immutable endpoint.
 
-Beispiele:
+If new Theses are added later, the existing report should be re-openable, expandable, and revisable.  
+Previously hidden Theses should also be available again in the builder so that earlier decisions can be checked, reconsidered, or reweighted.
 
-- Wer sind die Eltern einer bestimmten Person?
-- Sind zwei gleichnamige Personen identisch?
-- Welche von mehreren Geburtsangaben ist plausibel?
-- Gehören mehrere Quellen zum selben Lebenslauf?
-- Wie lässt sich eine personenübergreifende Analyse zu einer Familie oder einem sozialen Umfeld organisieren?
-
-Der Forschungsfall dient dabei nicht als Speicherort für alle Inhalte selbst, sondern als ordnende Klammer.  
-An ihn werden die relevanten Elemente verlinkt.
-
-Ein Forschungsfall kann insbesondere verknüpfen mit:
-
-- Personen
-- Quellen
-- Transkriptionen
-- Thesen
-- Forschungsberichten
-- genealogischen Events
-- Forschungsaufgaben
-
-Dadurch eignet sich der Forschungsfall besonders für personenübergreifende oder quellenübergreifende Analysen, ohne dass dafür eine starre neue Hierarchie aufgebaut werden muss.
+The builder is therefore not a one-time export, but an ongoing working environment for the current research state.
 
 ---
 
-## Notizen am Forschungsfall
+## Relationship to Transcription and Source
 
-Ein Forschungsfall soll eigene Notizen unterstützen.
+The module should be independent but interoperable.
 
-Diese Notizen dienen nicht als Ersatz für Thesen oder Berichte, sondern als freier Arbeitsraum auf Fall-Ebene.  
-Dort können zum Beispiel festgehalten werden:
+It should work well with a transcription module without depending on one.  
+Transcriptions can provide an important basis for Theses, just like other kinds of sources.
 
-- die eigentliche Forschungsfrage
-- Zwischenüberlegungen
-- Hypothesen
-- offene Probleme
-- methodische Hinweise
-- nächste sinnvolle Schritte
-- allgemeine Einordnungen, die nicht in einen einzelnen These passen
+This also reflects the fact that genealogical sources are not limited to image files. They may also include:
 
-Damit erhält der Forschungsfall neben seiner Verlinkungsfunktion auch eine eigene fachliche Arbeitsoberfläche.
+- textual records
+- audio sources
+- video sources
+- interviews
+- notes
+- prior research findings
 
----
-
-## Verhältnis von Forschungsfall und These
-
-Der Forschungsfall ist nicht die eigentliche Evidenzeinheit.  
-Diese Rolle bleibt beim These.
-
-Der Forschungsfall dient vielmehr dazu, mehrere Thesen in einem größeren analytischen Zusammenhang zu organisieren.  
-Das ist insbesondere dann wichtig, wenn eine genealogische Fragestellung nicht nur eine Person oder nicht nur einen einzelnen Eventtyp betrifft.
-
-Thesen bleiben daher eigenständige Forschungsbausteine.  
-Sie können unabhängig existieren, aber zusätzlich einem Forschungsfall zugeordnet werden.
+The module should therefore not be restricted to a single source type.
 
 ---
 
-## Verhältnis von Forschungsfall und Forschungsaufgabe
+## Research Case as a Higher-Level Container
 
-In webtrees existieren bereits Forschungsaufgaben als To-do-Struktur.  
-Diese sind für operative Arbeitsschritte nützlich, sollen im geplanten Modul aber nicht den Forschungsfall ersetzen.
+The module should not only manage individual Theses, but also support more complex genealogical questions in a structured way.
 
-Das Konzept unterscheidet daher bewusst zwischen:
+For this reason, it introduces a dedicated **Research Case** as a higher-level container.  
+A Research Case describes a genealogical question or connected field of investigation.
 
-- **Forschungsfall** als inhaltlicher und analytischer Container
-- **Forschungsaufgabe** als konkreter Arbeits- oder Prüfschritt
+Examples:
 
-Ein Forschungsfall kann eine oder mehrere Forschungsaufgaben referenzieren.  
-Dadurch lassen sich praktische Tätigkeiten in einen größeren Forschungszusammenhang einordnen, ohne dass ein eigenes System von Unteraufgaben aufgebaut werden muss.
+- Who are the parents of a specific person?
+- Are two people with the same name identical?
+- Which of several birth dates is most plausible?
+- Do several sources belong to the same life course?
+- How should a person-spanning analysis of a family or social environment be organized?
 
-Beispiele für Forschungsaufgaben innerhalb eines Forschungsfalls:
+A Research Case is not primarily a storage location for all content itself.  
+It is an organizing frame to which relevant elements are linked.
 
-- Quelle erneut prüfen
-- Transkription vervollständigen
-- Lesung durch zweite Person kontrollieren
-- widersprüchliche Angaben vergleichen
-- weitere Quelle beschaffen
-- externe Lesehilfe einholen
+A Research Case may in particular be linked with:
 
-Diese Aufgaben bleiben operative Einheiten.  
-Der Forschungsfall bleibt die fachliche Klammer.
+- persons
+- sources
+- transcriptions
+- Theses
+- Research Reports
+- genealogical Events
+- Research Tasks
+- FAN Entries
 
----
-
-## Flexibilität bei Forschungsaufgaben
-
-Ein aktuelles Hindernis in webtrees besteht darin, dass Forschungsaufgaben bisher an Personen oder Familien gebunden sind.  
-Für ein evidenzbasiertes Forschungsmodul ist dies zu eng, da viele Arbeitsaufträge sich auf Quellen, Transkriptionen oder ganze Forschungsfälle beziehen können.
-
-Das Modul soll deshalb eine flexiblere Sicht auf Forschungsaufgaben unterstützen.
-
-Zunächst kann dies durch Verlinkung vorhandener Forschungsaufgaben in einen Forschungsfall geschehen.  
-Langfristig ist zu prüfen, ob Aufgaben auch unabhängig von Personen direkt mit Quellen oder Forschungsfällen verknüpft werden können.
-
-Damit würde die Arbeitsorganisation besser an reale genealogische Forschung angepasst.
+This makes the Research Case especially useful for person-spanning or source-spanning analysis without requiring a rigid new hierarchy.
 
 ---
 
-## Rolle des Research Managers
+## Notes at the Research Case Level
 
-Der geplante Modulname **Research Manager** betont diese übergreifende Funktion.
+A Research Case should support its own notes.
 
-Das Modul verwaltet nicht nur einzelne Thesen, sondern den gesamten Zusammenhang aus:
+These notes are not a replacement for Theses or Reports.  
+They provide a free working space at case level for things such as:
 
-- Fragestellung
-- Quelle
-- These
-- Forschungsaufgabe
-- Bericht
-- genealogischer Schlussfolgerung
+- the actual research question
+- intermediate thoughts
+- hypotheses
+- open problems
+- methodological notes
+- sensible next steps
+- general context that does not fit a single Thesis
 
-Der Research Manager ist damit die organisatorische und fachliche Ebene für evidenzbasiertes Arbeiten in webtrees.
-
----
-
-## Leitprinzipien des Konzepts
-
-Das Modul folgt den folgenden Grundgedanken:
-
-Ein These ist keine bloße Notiz.  
-Ein These ist keine bloße Quellenverknüpfung.  
-Ein These ist auch noch kein fertiges Event.
-
-Ein These ist ein eigenständiger, strukturierter Forschungsbaustein zwischen Quelle und genealogischer Schlussfolgerung.
-
-Das Modul soll deshalb:
-
-- quellengebunden arbeiten
-- personenbezogen auswertbar sein
-- eventnah strukturiert sein
-- widersprüchliche Angaben zulassen
-- Berichte und Begründungen unterstützen
-- Entscheidungen nachvollziehbar machen
-- abgeschlossene Thesen ausblendbar, aber nicht unsichtbar machen
-- spätere Revisionen ermöglichen
+This gives the Research Case not only a linking role but also its own practical workspace.
 
 ---
 
-## Usability-Prinzipien
+## Relationship Between Research Case and Thesis
 
-Das Modul soll methodisch stärker sein als klassische Event-Erfassung, dabei aber bewusst einfach benutzbar bleiben.
+The Research Case is not the actual unit of evidence.  
+That role remains with the Thesis.
 
-Deshalb gilt für das Konzept:
+The Research Case exists to organize multiple Theses within a larger analytical context.  
+This is particularly important when a genealogical question does not concern only one person or only one event type.
 
-- so wenige neue Objekte wie möglich
-- so viele abgeleitete Ansichten wie sinnvoll
-- keine unnötige Verdoppelung bestehender Inhalte
-- keine Pflicht, jede Kontextperson sofort als GEDCOM-Person anzulegen
-- methodische Tiefe soll schrittweise zugänglich sein, nicht alles auf einmal verlangen
-
-Research Manager soll die Arbeitsweise verbessern, ohne für Laien wie ein zweites kompliziertes System neben webtrees zu wirken.
+Theses therefore remain independent research units.  
+They can exist on their own, but can additionally be linked to a Research Case.
 
 ---
 
-## Abgeleitete Ansichten statt zusätzlicher Notizobjekte
+## Relationship Between Research Case and Research Task
 
-Bestimmte methodische Anforderungen sollen nicht über immer neue Datentypen gelöst werden, sondern über zusätzliche Sichten auf bestehende Objekte.
+webtrees already contains research tasks as a to-do structure.  
+These are useful for operational work steps, but should not replace the Research Case in the planned module.
 
-### Personenansicht: Research Context
+The concept therefore clearly distinguishes between:
 
-Im Personenprofil soll ein eigener Tab **Research Context** eine forschungsbezogene Sicht auf vorhandene Daten bieten.
+- **Research Case** as a substantive and analytical container
+- **Research Task** as a concrete work or verification step
 
-Diese Sicht ist kein eigenes Objekt, sondern aggregiert bestehende Inhalte wie:
+A Research Case may reference one or more Research Tasks.  
+This allows practical activities to be placed into a larger research context without requiring a complex subtask system.
 
-- Thesen
-- Berichte
-- Konflikte
-- Aufgaben
-- chronologisch relevante Forschungshinweise
+Examples of Research Tasks within a Research Case:
 
-Damit kann eine personenzentrierte Forschungssicht entstehen, ohne dass dafür ein eigener Notiztyp gepflegt werden muss.
+- review a source again
+- complete a transcription
+- have a reading checked by a second person
+- compare conflicting statements
+- obtain an additional source
+- request outside reading help
 
-### Quellenansicht: Extracted Theses
-
-Im Quellenkontext soll ein eigener Tab **Extracted Theses** alle aus einer Quelle gewonnenen Thesen bündeln.
-
-Dadurch wird die Quelle als analytischer Ausgangspunkt sichtbarer und die Forschung weniger rein personenzentriert.
+These tasks remain operational units.  
+The Research Case remains the analytical frame.
 
 ---
-## FAN als eigener Forschungskontext
 
-Ein zentrales methodisches Defizit klassischer genealogischer Software ist die geringe Sichtbarkeit von FAN-Zusammenhängen.
+## Flexibility for Research Tasks
 
-Research Manager soll deshalb im Personenprofil einen eigenen Tab **FAN** anbieten.
+A current limitation in webtrees is that research tasks are tied to persons or families.  
+For an evidence-based research module, this is too narrow, since many tasks may relate to sources, transcriptions, or entire research cases.
 
-Der Begriff FAN steht für:
+The module should therefore support a more flexible view of Research Tasks.
+
+At first, this may simply mean linking existing tasks into a Research Case.  
+In the longer term, it should be evaluated whether tasks can also be linked directly to sources or Research Cases independently of persons.
+
+This would align the work organization more closely with real genealogical practice.
+
+---
+
+## Role of the Research Manager
+
+The planned module name **Research Manager** reflects this broader role.
+
+The module does not only manage individual Theses, but the overall relationship among:
+
+- research question
+- source
+- Thesis
+- Research Task
+- report
+- genealogical Conclusion
+
+Research Manager is therefore intended as the organizational and analytical layer for evidence-based work in webtrees.
+
+---
+
+## Guiding Principles of the Concept
+
+The module follows the following core ideas:
+
+A Thesis is not just a note.  
+A Thesis is not just a source link.  
+A Thesis is not yet a finished Event.
+
+A Thesis is an independent, structured research unit between the source and the genealogical Conclusion.
+
+The module should therefore:
+
+- remain source-based
+- be reviewable in person context
+- stay structurally close to events
+- allow conflicting statements
+- support reports and reasoning
+- make decisions transparent
+- allow completed Theses to be hidden without making them disappear
+- support later revision
+
+---
+
+## Usability Principles
+
+The module should be methodologically stronger than ordinary event entry, while still remaining easy to use.
+
+Therefore, the concept follows these rules:
+
+- as few new object types as possible
+- as many derived views as useful
+- no unnecessary duplication of existing content
+- no requirement to create a GEDCOM person for every context person
+- methodological depth should be available gradually, not all at once
+
+Research Manager should improve genealogical work without feeling like a second complex system beside webtrees.
+
+---
+
+## Derived Views Instead of Additional Note Objects
+
+Certain methodological needs should not be solved by adding ever more object types, but by creating better views on existing objects.
+
+### Person View: Research Context
+
+The person profile should contain a dedicated **Research Context** tab that provides a research-oriented view of existing data.
+
+This view is not its own object. It aggregates existing content such as:
+
+- Theses
+- Reports
+- conflicts
+- tasks
+- chronologically relevant research observations
+- linked FAN Entries
+
+This creates a person-centered research view without requiring a separate note type.
+
+### Source View: Extracted Theses
+
+The source view should contain a dedicated **Extracted Theses** tab that brings together all Theses derived from that source.
+
+This makes the source more visible as an analytical starting point and reduces the risk that research becomes purely person-centered.
+
+---
+
+## FAN as a Distinct Research Context
+
+One major methodological weakness of traditional genealogical software is the poor visibility of FAN relationships.
+
+For this reason, Research Manager should provide a dedicated **FAN** tab in the person profile.
+
+The term FAN stands for:
 
 - Friends
 - Associates
 - Neighbors
 
-Die ausgeschriebene Bedeutung kann über einen Hilfetext oder Hover-Text erklärt werden.
+The full meaning can be explained through a help text or hover text in the interface.
 
-Der FAN-Tab soll die Forschung nicht in ein zweites Personensystem überführen, sondern einen leicht zugänglichen Kontextbereich schaffen, in dem relevante Umfeldpersonen erfasst, angezeigt und später weiterverknüpft werden können.
+The FAN tab should not create a second full person system.  
+Instead, it should create an easily accessible context area in which relevant surrounding people can be recorded, displayed, and later linked further if necessary.
 
 ---
 
 ## FAN Entry
 
-Ein FAN Entry ist eine reduzierte Forschungseinheit zur Erfassung kontextrelevanter Personen.
+A **FAN Entry** is a reduced research unit for recording context-relevant people.
 
-Geplante Felder:
+It should be lightweight enough for quick use, while still allowing later linkage and deeper analysis.
 
-- Vorname
-- Nachname
-- Typ
-- Fokusperson
-- Quelle
-- Forschungsfall
-- Notiz
-- Ort
-- Zeitraum
-- GEDCOM-Verlinkung
+### Planned Fields
 
-### Pflicht und Verknüpfung
+- `display_name`
+- `fan_type`
+- `focus_person_id`
+- `source_id`
+- `research_case_id`
+- `note`
+- `place_text`
+- `time_span_text`
+- `linked_gedcom_person_id`
 
-Pflichtfeld ist mindestens die **Fokusperson**.
+### Required and Recommended Linkage
 
-Der **Forschungsfall** soll als zentrale fachliche Verknüpfung vorgesehen werden und in vielen UI-Kontexten automatisch vorbelegt oder stark empfohlen werden.
+At minimum, a FAN Entry should require a **focus person** and a **display name**.
 
-Die **Quelle** bleibt optional, soll aber überall dort leicht verknüpfbar sein, wo ein FAN-Eintrag direkt aus einer konkreten Quelle entsteht.
+The **Research Case** should be treated as a central contextual link and should be automatically prefilled or strongly recommended in many UI contexts.
 
-### Ziel
+The **Source** remains optional, but should be easy to link wherever a FAN Entry arises directly from a specific source.
 
-FAN Entries sollen schnell und unkompliziert erfasst werden können, vorzugsweise tabellarisch, damit auch größere Kontexte ohne hohen Modellierungsaufwand dokumentierbar bleiben.
+### Why `display_name` Instead of Structured First and Last Names
+
+The first version should optimize for fast and flexible capture.
+
+Context people are often not known precisely enough to justify mandatory first-name / last-name fields.
+
+Examples include:
+
+- uncertain names
+- partial names
+- witness labels
+- unnamed neighbors
+- household-level descriptions
+
+A single `display_name` field keeps the UI simpler and avoids false precision.
+
+### Goal
+
+FAN Entries should be fast and easy to create, ideally in a table-like interface, so that broader context can be documented without high modeling overhead.
 
 ---
 
-## Geplante Aktionen für FAN Entries
+## Planned Actions for FAN Entries
 
-FAN Entries sollen langfristig mindestens folgende Aktionen unterstützen:
+In the longer term, FAN Entries should support at least the following actions:
 
-- als Associate hinzufügen
-- mit vorhandener Person verknüpfen
-- zur Person im Stammbaum machen
-- im Forschungsfall anzeigen
+- add as associate
+- link to an existing person
+- convert into a tree person
+- show in the Research Case
 
-Damit bleibt der Einstieg niedrigschwellig, während spätere Vertiefung möglich bleibt.
+This keeps entry lightweight while allowing deeper use later.
 
 ---
 
-## Vorläufiges Fazit
+## Preliminary Conclusion
 
-Das geplante Reserach Manager soll webtrees um eine evidenzbasierte Forschungsebene erweitern.
+Research Manager is intended to extend webtrees with an evidence-based research layer.
 
-Im Zentrum steht nicht das sofortige Eintragen fertiger Fakten, sondern der nachvollziehbare Weg von der Quelle über einzelne Thesen hin zu einer begründeten genealogischen Schlussfolgerung.
+Its focus is not the immediate entry of final facts, but the traceable path from the source through individual Theses to a reasoned genealogical Conclusion.
 
-Dadurch kann webtrees stärker vom rein ergebnisorientierten Arbeiten in Richtung eines dokumentierten Forschungsprozesses erweitert werden.
+In this way, webtrees can be extended beyond purely result-oriented work toward a documented and revisable research process.
