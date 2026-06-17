@@ -4,7 +4,6 @@ The following diagram distinguishes between stored research entities and derived
 - `Extracted Theses` is a source-level derived view
 - `FAN Entry` is the only new lightweight context entity
 
-````md
 ```mermaid
 erDiagram
     PERSON {
@@ -84,3 +83,4 @@ erDiagram
     RESEARCH_CONTEXT_VIEW }o--o{ FAN_ENTRY : shows
 
     EXTRACTED_THESES_VIEW }o--o{ THESIS : shows
+```
